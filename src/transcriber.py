@@ -61,7 +61,7 @@ def transcribe_audio(file_path: str, language: str = None) -> dict:
         raise ValueError(f"Unsupported audio format: {path.suffix}. Use: {supported_formats}")
     
     # Check file size (Whisper API limit is 25MB)
-    file_size_mb = path.state().st_size / (1024 * 1024)
+    file_size_mb = path.stat().st_size / (1024 * 1024)
     if file_size_mb > 25:
         raise ValueError(f"File is {file_size_mb:.1f}MB. Whisper limit is 25MB. "
                          "Split the file first (see split_audio function)."
@@ -167,3 +167,33 @@ def transcribe_long_audio(file_path:str) -> dict:
     }
 
 # === TEST IT ===
+if __name__ == "__main__":
+    """
+    LEARNING NOTE: This block only runs when you run this file direclty
+    (python src/transciber.py), not when it's imported by another file.
+
+    To test: Get a sample audio file. You can:
+    1. Record a 2-minute fake meeting on your phone with a freind. 
+    Make sure to include:
+        - A decision
+        - Action items
+        - An open question
+    2. Use a podcast clip: Download any 5-minute podcast segment as an mp3.
+    3. Text-to-speech: Use a TTS tool (like https://ttsmp3.com/) to generate a sample audio file from text.
+
+    Save it to samples/test_meeting.mp3
+    """
+    import json
+
+    result = transcribe_audio("samples/test_meeting.m4a")
+
+    print(f"Language detected: {result['language']}")
+    print(f"Total segments: {len(result['segments'])}")
+    print(f"\n--- TRANSCRIPT ---\n")
+    print(result["text"][:500])  # Print first 500 chars
+
+    # Save full result for the next phase
+    with open("outputs/transcript.json", "w") as f:
+        json.dump(result, f, indent=2)
+
+    print("\nSaved to outputs/transcript.json")
