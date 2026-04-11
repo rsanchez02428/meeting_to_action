@@ -1,0 +1,691 @@
+{
+  "text": "Thank you for joining me, Carlos. We need to talk through the warehouse issues from this week and leave this meeting with a plan. Over the last three days, we've had delayed shipment, inventory mismatches, and at least two customers complain tied to incorrect pallets, labeling. That's not a one-off mistake anymore. That's a process problem. Give me the floor level view that's going wrong. The biggest issue is congestion in the warehouse, especially in zones B and C. We've got too much overflow inventory sitting too close to the main picking lines. Forklifts are crossing through the same lanes where pickers are working, so traffic is slowing everybody down. Once picking gets delayed, packing falls behind and then shipping misses the carrier cutoff times. So the layout is part of the problem. What else? Equipment and training. Three handheld scanners went offline Tuesday morning, so some of the team had to record item moves manually. That closed delays in updating inventory. We also brought in two temp workers last week, and they haven't fully learned the scan confirmation and pallet labeling steps yet. I think some of the labeling errors started there. That lines up with what I've heard. Dispatch said they were told two priority orders were stacked and ready. Stacked and staged and ready. But when the drivers arrived, one pallet was missing and other was in the wrong and another one was in the wrong loading bay. The truck left with a partial load and the customer got the order a day late. Yes, and when manual entries are added late, the system doesn't match what's actually on the floor. So even if the product is physically in the building, the team wastes time searching for it. That's part of why outbound orders are getting stuck. I checked the latest numbers before this meeting. We're seeing discrepancies across several fast-moving SKUs. I don't think product gets disappearing, but I do think we've lost control of visibility. The system and the warehouse are telling two different stories, and that's a dangerous place to be. I agree. The timing also makes sense. The issues got worse right after that seasonal overstock came in last week. We filed a temporary storage space quickly, but we didn't update the slotting plan. So people have been improvising. Improvising works great in jazz, not in warehouse. Of course, our customers are not paying for jazz. Exactly. All right, let's move from diagnosis to options. If we want the fastest operational fix, what do you recommend? First, move overflow inventory out of zones B and C and into the back reserve area, even if that makes bulk storage tighter for a few days. Second, make one lane pick only during peak hours so forklifts stop blocking the order selectors. Third, remove the temp workers from independent picking until they complete refresher training on scanning and labeling. That sounds reasonable. I'll add one more thing. We need a better staging confirmation process before this batch get told an order is ready. Right now, that hand off is too informal. If someone says a pallet is ready and isn't, the entire shipping schedule gets hit. Agreed. We should require a final verification before an order is marked staged. The pallet label, the bay number and the scan time should all match. If one of those is off, the order stays unconfirmed. Good. And what about the scanner problem? It says one replacement scanner can be available today and the other broken units should be repaired by tomorrow afternoon. Until then, teams will have to share devices, which won't help productivity, but at least it gives us a path forward. Fine. Well, we'll plan around that for the next day. Now, let's talk decision. Based on what we know, I don't want to wait. Starting today, we are making three immediate changes. We are re-slotting overflow inventory out of zone B and C. Setting up a pick only lane during peak hours and putting a mandatory staging verification check in place before dispatch confirmation. I support that decision. It addresses the traffic issue, the visibility issue and the shipping issue all at once. Good. I also want temp workers retrain before they return to independent picking. No more guessing, no more skipping scans and no more labels that look like they were created on a panic. Understood. I'll handle that. I can brief the floor team right after this meeting and start moving overflow stock by 1030. I'll also assign a lead to supervise the new lane setup and the temp worker refresher. I'll notify dispatch that staging time may run slightly longer today. While we are stabilizing the process, I'd rather have a short delay than another wrong shipment. That makes sense. Do you also want a cycle count on the affected SKUs? Yes, we need to clean up the discrepancies, even if it takes a few hours. Pull to team members after lunch and do a targeted count on the high volume items that have shown mismatches this week. I want a variance report by the end of the day. Done. I'll prioritize the eight SKUs and the highest movement. That should give us the cleanest picture, the clearest picture fastest. Good. Let's lock in the action items clearly. First, you'll move overflow inventory out of zones B and C today. Second, you'll create a pick only lane during pick hours. Third, you'll retain the temp workers before they go back to independent tasks. Fourth, you'll run a target cycle count on the affected SKUs and send me the results by end of day. Correct. On my side, I'll coordinate with dispatch and IT. I'll make sure carriers are aware of possible short staging delays, and I'll push IT to get remaining scanners repair as fast as possible. That covers the immediate problems. It does. But there's still one open question we need to answer. Are there are this warehouse issues temporary because of the seasonal overflow and equipment trouble? Or are they signs that our current layout no longer support our volume? Honestly, I think I think that's the bigger question. We can stabilize operations now. But if inbound and outbound volume stay at this level, the current layout may keep creating bottlenecks no matter how disciplined the team is. I'm thinking the same thing. We may be solving today's fire while tomorrow's fire is already picking our curtains. Then the next step is to watch the data. If shipping accuracy and picking speed improve over the next week, then the problem was mostly execution. If not, we may need a more seriously layout redesign. Exactly. Let's use the next seven days to measure the impact of this changes. Then we'll meet again Friday at 2 p.m., review the numbers and decide whether this is a short term recovery plan or the start of a bigger warehouse redesign. Sounds good. I'll get started with the floor team right away. Thanks. Thanks, Carlos. Let's fix the process before the process decides to embarrass us again.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.0999999046325684,
+      "text": "Thank you for joining me, Carlos."
+    },
+    {
+      "start": 4.199999809265137,
+      "end": 8.739999771118164,
+      "text": "We need to talk through the warehouse issues from this week"
+    },
+    {
+      "start": 8.739999771118164,
+      "end": 10.960000038146973,
+      "text": "and leave this meeting with a plan."
+    },
+    {
+      "start": 11.380000114440918,
+      "end": 15.680000305175781,
+      "text": "Over the last three days, we've had delayed shipment,"
+    },
+    {
+      "start": 15.680000305175781,
+      "end": 20.8799991607666,
+      "text": "inventory mismatches, and at least two customers complain"
+    },
+    {
+      "start": 21.700000762939453,
+      "end": 24.559999465942383,
+      "text": "tied to incorrect pallets, labeling."
+    },
+    {
+      "start": 24.940000534057617,
+      "end": 29.139999389648438,
+      "text": "That's not a one-off mistake anymore."
+    },
+    {
+      "start": 29.3799991607666,
+      "end": 31.040000915527344,
+      "text": "That's a process problem."
+    },
+    {
+      "start": 31.3799991607666,
+      "end": 35.119998931884766,
+      "text": "Give me the floor level view that's going wrong."
+    },
+    {
+      "start": 35.68000030517578,
+      "end": 38.36000061035156,
+      "text": "The biggest issue is congestion in the warehouse,"
+    },
+    {
+      "start": 38.36000061035156,
+      "end": 40.459999084472656,
+      "text": "especially in zones B and C."
+    },
+    {
+      "start": 40.7599983215332,
+      "end": 44.619998931884766,
+      "text": "We've got too much overflow inventory sitting too close to the main picking lines."
+    },
+    {
+      "start": 45.0,
+      "end": 48.459999084472656,
+      "text": "Forklifts are crossing through the same lanes"
+    },
+    {
+      "start": 48.86000061035156,
+      "end": 51.84000015258789,
+      "text": "where pickers are working, so traffic is slowing everybody down."
+    },
+    {
+      "start": 52.15999984741211,
+      "end": 55.7400016784668,
+      "text": "Once picking gets delayed, packing falls behind"
+    },
+    {
+      "start": 55.7400016784668,
+      "end": 59.880001068115234,
+      "text": "and then shipping misses the carrier cutoff times."
+    },
+    {
+      "start": 60.7400016784668,
+      "end": 63.540000915527344,
+      "text": "So the layout is part of the problem."
+    },
+    {
+      "start": 63.58000183105469,
+      "end": 64.87999725341797,
+      "text": "What else?"
+    },
+    {
+      "start": 64.87999725341797,
+      "end": 66.37999725341797,
+      "text": "Equipment and training."
+    },
+    {
+      "start": 66.37999725341797,
+      "end": 70.0199966430664,
+      "text": "Three handheld scanners went offline Tuesday morning,"
+    },
+    {
+      "start": 70.0199966430664,
+      "end": 74.22000122070312,
+      "text": "so some of the team had to record item moves manually."
+    },
+    {
+      "start": 74.66000366210938,
+      "end": 77.26000213623047,
+      "text": "That closed delays in updating inventory."
+    },
+    {
+      "start": 77.5999984741211,
+      "end": 80.16000366210938,
+      "text": "We also brought in two temp workers last week,"
+    },
+    {
+      "start": 80.16000366210938,
+      "end": 84.73999786376953,
+      "text": "and they haven't fully learned the scan confirmation and pallet labeling steps yet."
+    },
+    {
+      "start": 85.23999786376953,
+      "end": 88.4800033569336,
+      "text": "I think some of the labeling errors started there."
+    },
+    {
+      "start": 90.23999786376953,
+      "end": 92.18000030517578,
+      "text": "That lines up with what I've heard."
+    },
+    {
+      "start": 92.18000030517578,
+      "end": 100.45999908447266,
+      "text": "Dispatch said they were told two priority orders were stacked and ready."
+    },
+    {
+      "start": 100.66000366210938,
+      "end": 104.31999969482422,
+      "text": "Stacked and staged and ready."
+    },
+    {
+      "start": 104.9000015258789,
+      "end": 111.69999694824219,
+      "text": "But when the drivers arrived, one pallet was missing and other was in the wrong"
+    },
+    {
+      "start": 112.04000091552734,
+      "end": 114.19999694824219,
+      "text": "and another one was in the wrong loading bay."
+    },
+    {
+      "start": 114.83999633789062,
+      "end": 120.63999938964844,
+      "text": "The truck left with a partial load and the customer got the order a day late."
+    },
+    {
+      "start": 122.04000091552734,
+      "end": 125.37999725341797,
+      "text": "Yes, and when manual entries are added late,"
+    },
+    {
+      "start": 125.72000122070312,
+      "end": 129.4199981689453,
+      "text": "the system doesn't match what's actually on the floor."
+    },
+    {
+      "start": 129.72000122070312,
+      "end": 132.47999572753906,
+      "text": "So even if the product is physically in the building,"
+    },
+    {
+      "start": 132.47999572753906,
+      "end": 134.47999572753906,
+      "text": "the team wastes time searching for it."
+    },
+    {
+      "start": 134.82000732421875,
+      "end": 138.05999755859375,
+      "text": "That's part of why outbound orders are getting stuck."
+    },
+    {
+      "start": 140.89999389648438,
+      "end": 143.39999389648438,
+      "text": "I checked the latest numbers before this meeting."
+    },
+    {
+      "start": 143.66000366210938,
+      "end": 148.25999450683594,
+      "text": "We're seeing discrepancies across several fast-moving SKUs."
+    },
+    {
+      "start": 149.44000244140625,
+      "end": 151.74000549316406,
+      "text": "I don't think product gets disappearing,"
+    },
+    {
+      "start": 151.8000030517578,
+      "end": 154.74000549316406,
+      "text": "but I do think we've lost control of visibility."
+    },
+    {
+      "start": 155.10000610351562,
+      "end": 158.60000610351562,
+      "text": "The system and the warehouse are telling two different stories,"
+    },
+    {
+      "start": 158.89999389648438,
+      "end": 161.0399932861328,
+      "text": "and that's a dangerous place to be."
+    },
+    {
+      "start": 161.47999572753906,
+      "end": 163.63999938964844,
+      "text": "I agree. The timing also makes sense."
+    },
+    {
+      "start": 163.63999938964844,
+      "end": 168.5800018310547,
+      "text": "The issues got worse right after that seasonal overstock came in last week."
+    },
+    {
+      "start": 169.0800018310547,
+      "end": 171.6199951171875,
+      "text": "We filed a temporary storage space quickly,"
+    },
+    {
+      "start": 171.94000244140625,
+      "end": 174.44000244140625,
+      "text": "but we didn't update the slotting plan."
+    },
+    {
+      "start": 174.44000244140625,
+      "end": 176.27999877929688,
+      "text": "So people have been improvising."
+    },
+    {
+      "start": 177.33999633789062,
+      "end": 180.0800018310547,
+      "text": "Improvising works great in jazz, not in warehouse."
+    },
+    {
+      "start": 181.22000122070312,
+      "end": 184.17999267578125,
+      "text": "Of course, our customers are not paying for jazz."
+    },
+    {
+      "start": 187.1199951171875,
+      "end": 187.86000061035156,
+      "text": "Exactly."
+    },
+    {
+      "start": 189.1999969482422,
+      "end": 194.25999450683594,
+      "text": "All right, let's move from diagnosis to options."
+    },
+    {
+      "start": 194.3000030517578,
+      "end": 198.89999389648438,
+      "text": "If we want the fastest operational fix, what do you recommend?"
+    },
+    {
+      "start": 199.52000427246094,
+      "end": 203.72000122070312,
+      "text": "First, move overflow inventory out of zones B and C"
+    },
+    {
+      "start": 203.72000122070312,
+      "end": 207.32000732421875,
+      "text": "and into the back reserve area,"
+    },
+    {
+      "start": 207.75999450683594,
+      "end": 210.55999755859375,
+      "text": "even if that makes bulk storage tighter for a few days."
+    },
+    {
+      "start": 210.9199981689453,
+      "end": 215.6999969482422,
+      "text": "Second, make one lane pick only during peak hours"
+    },
+    {
+      "start": 215.89999389648438,
+      "end": 219.0,
+      "text": "so forklifts stop blocking the order selectors."
+    },
+    {
+      "start": 219.3800048828125,
+      "end": 223.97999572753906,
+      "text": "Third, remove the temp workers from independent picking"
+    },
+    {
+      "start": 224.0,
+      "end": 229.13999938964844,
+      "text": "until they complete refresher training on scanning and labeling."
+    },
+    {
+      "start": 230.5399932861328,
+      "end": 232.13999938964844,
+      "text": "That sounds reasonable."
+    },
+    {
+      "start": 232.13999938964844,
+      "end": 233.74000549316406,
+      "text": "I'll add one more thing."
+    },
+    {
+      "start": 233.74000549316406,
+      "end": 237.13999938964844,
+      "text": "We need a better staging confirmation process"
+    },
+    {
+      "start": 237.47999572753906,
+      "end": 241.32000732421875,
+      "text": "before this batch get told an order is ready."
+    },
+    {
+      "start": 241.83999633789062,
+      "end": 245.67999267578125,
+      "text": "Right now, that hand off is too informal."
+    },
+    {
+      "start": 246.22000122070312,
+      "end": 249.9199981689453,
+      "text": "If someone says a pallet is ready and isn't,"
+    },
+    {
+      "start": 250.32000732421875,
+      "end": 252.9600067138672,
+      "text": "the entire shipping schedule gets hit."
+    },
+    {
+      "start": 253.77999877929688,
+      "end": 256.739990234375,
+      "text": "Agreed. We should require a final verification"
+    },
+    {
+      "start": 256.739990234375,
+      "end": 258.94000244140625,
+      "text": "before an order is marked staged."
+    },
+    {
+      "start": 259.239990234375,
+      "end": 263.6400146484375,
+      "text": "The pallet label, the bay number and the scan time should all match."
+    },
+    {
+      "start": 263.8800048828125,
+      "end": 266.55999755859375,
+      "text": "If one of those is off, the order stays unconfirmed."
+    },
+    {
+      "start": 267.260009765625,
+      "end": 269.4200134277344,
+      "text": "Good. And what about the scanner problem?"
+    },
+    {
+      "start": 269.760009765625,
+      "end": 273.260009765625,
+      "text": "It says one replacement scanner can be available today"
+    },
+    {
+      "start": 273.6000061035156,
+      "end": 277.3599853515625,
+      "text": "and the other broken units should be repaired by tomorrow afternoon."
+    },
+    {
+      "start": 277.6000061035156,
+      "end": 281.5,
+      "text": "Until then, teams will have to share devices, which won't help productivity,"
+    },
+    {
+      "start": 281.739990234375,
+      "end": 284.4800109863281,
+      "text": "but at least it gives us a path forward."
+    },
+    {
+      "start": 284.4800109863281,
+      "end": 289.0799865722656,
+      "text": "Fine. Well, we'll plan around that for the next day."
+    },
+    {
+      "start": 289.239990234375,
+      "end": 291.44000244140625,
+      "text": "Now, let's talk decision."
+    },
+    {
+      "start": 291.44000244140625,
+      "end": 294.6199951171875,
+      "text": "Based on what we know, I don't want to wait."
+    },
+    {
+      "start": 295.0199890136719,
+      "end": 298.6600036621094,
+      "text": "Starting today, we are making three immediate changes."
+    },
+    {
+      "start": 298.9800109863281,
+      "end": 305.1000061035156,
+      "text": "We are re-slotting overflow inventory out of zone B and C."
+    },
+    {
+      "start": 305.6000061035156,
+      "end": 309.6000061035156,
+      "text": "Setting up a pick only lane during peak hours"
+    },
+    {
+      "start": 309.6000061035156,
+      "end": 313.20001220703125,
+      "text": "and putting a mandatory staging verification"
+    },
+    {
+      "start": 313.20001220703125,
+      "end": 317.1000061035156,
+      "text": "check in place before dispatch confirmation."
+    },
+    {
+      "start": 317.4800109863281,
+      "end": 319.1000061035156,
+      "text": "I support that decision."
+    },
+    {
+      "start": 319.1000061035156,
+      "end": 322.1400146484375,
+      "text": "It addresses the traffic issue, the visibility issue"
+    },
+    {
+      "start": 322.1400146484375,
+      "end": 324.8399963378906,
+      "text": "and the shipping issue all at once."
+    },
+    {
+      "start": 324.8399963378906,
+      "end": 327.5799865722656,
+      "text": "Good. I also want temp workers retrain"
+    },
+    {
+      "start": 327.9800109863281,
+      "end": 331.2200012207031,
+      "text": "before they return to independent picking."
+    },
+    {
+      "start": 331.5799865722656,
+      "end": 334.8599853515625,
+      "text": "No more guessing, no more skipping scans"
+    },
+    {
+      "start": 335.2200012207031,
+      "end": 339.4599914550781,
+      "text": "and no more labels that look like they were created on a panic."
+    },
+    {
+      "start": 340.6000061035156,
+      "end": 342.4599914550781,
+      "text": "Understood. I'll handle that."
+    },
+    {
+      "start": 342.4599914550781,
+      "end": 344.8599853515625,
+      "text": "I can brief the floor team right after this meeting"
+    },
+    {
+      "start": 344.8599853515625,
+      "end": 347.739990234375,
+      "text": "and start moving overflow stock by 1030."
+    },
+    {
+      "start": 348.05999755859375,
+      "end": 351.739990234375,
+      "text": "I'll also assign a lead to supervise the new lane setup"
+    },
+    {
+      "start": 351.739990234375,
+      "end": 354.1400146484375,
+      "text": "and the temp worker refresher."
+    },
+    {
+      "start": 354.1400146484375,
+      "end": 358.739990234375,
+      "text": "I'll notify dispatch that staging time may run slightly longer today."
+    },
+    {
+      "start": 359.0199890136719,
+      "end": 363.1199951171875,
+      "text": "While we are stabilizing the process, I'd rather have a short"
+    },
+    {
+      "start": 363.4800109863281,
+      "end": 365.6600036621094,
+      "text": "delay than another wrong shipment."
+    },
+    {
+      "start": 366.0199890136719,
+      "end": 366.9599914550781,
+      "text": "That makes sense."
+    },
+    {
+      "start": 367.0199890136719,
+      "end": 371.4599914550781,
+      "text": "Do you also want a cycle count on the affected SKUs?"
+    },
+    {
+      "start": 372.32000732421875,
+      "end": 374.760009765625,
+      "text": "Yes, we need to clean up the discrepancies,"
+    },
+    {
+      "start": 375.1000061035156,
+      "end": 377.05999755859375,
+      "text": "even if it takes a few hours."
+    },
+    {
+      "start": 377.05999755859375,
+      "end": 381.3599853515625,
+      "text": "Pull to team members after lunch and do a targeted count"
+    },
+    {
+      "start": 381.739990234375,
+      "end": 386.5400085449219,
+      "text": "on the high volume items that have shown mismatches this week."
+    },
+    {
+      "start": 386.8999938964844,
+      "end": 390.29998779296875,
+      "text": "I want a variance report by the end of the day."
+    },
+    {
+      "start": 391.0,
+      "end": 395.2200012207031,
+      "text": "Done. I'll prioritize the eight SKUs and the highest movement."
+    },
+    {
+      "start": 395.5799865722656,
+      "end": 400.5400085449219,
+      "text": "That should give us the cleanest picture, the clearest picture fastest."
+    },
+    {
+      "start": 401.3800048828125,
+      "end": 405.6199951171875,
+      "text": "Good. Let's lock in the action items clearly."
+    },
+    {
+      "start": 406.0799865722656,
+      "end": 411.55999755859375,
+      "text": "First, you'll move overflow inventory out of zones B and C today."
+    },
+    {
+      "start": 412.0199890136719,
+      "end": 415.79998779296875,
+      "text": "Second, you'll create a pick only lane during pick hours."
+    },
+    {
+      "start": 416.1600036621094,
+      "end": 421.3999938964844,
+      "text": "Third, you'll retain the temp workers before they go back to independent tasks."
+    },
+    {
+      "start": 421.7799987792969,
+      "end": 428.32000732421875,
+      "text": "Fourth, you'll run a target cycle count on the affected SKUs"
+    },
+    {
+      "start": 428.32000732421875,
+      "end": 431.6600036621094,
+      "text": "and send me the results by end of day."
+    },
+    {
+      "start": 431.9599914550781,
+      "end": 437.760009765625,
+      "text": "Correct. On my side, I'll coordinate with dispatch and IT."
+    },
+    {
+      "start": 438.1000061035156,
+      "end": 443.44000244140625,
+      "text": "I'll make sure carriers are aware of possible short staging delays,"
+    },
+    {
+      "start": 443.44000244140625,
+      "end": 449.239990234375,
+      "text": "and I'll push IT to get remaining scanners repair as fast as possible."
+    },
+    {
+      "start": 449.2799987792969,
+      "end": 450.9200134277344,
+      "text": "That covers the immediate problems."
+    },
+    {
+      "start": 452.5799865722656,
+      "end": 457.4200134277344,
+      "text": "It does. But there's still one open question we need to answer."
+    },
+    {
+      "start": 457.4200134277344,
+      "end": 461.1600036621094,
+      "text": "Are there are this warehouse issues temporary"
+    },
+    {
+      "start": 461.1600036621094,
+      "end": 464.29998779296875,
+      "text": "because of the seasonal overflow and equipment trouble?"
+    },
+    {
+      "start": 464.760009765625,
+      "end": 470.20001220703125,
+      "text": "Or are they signs that our current layout no longer support our volume?"
+    },
+    {
+      "start": 470.739990234375,
+      "end": 474.739990234375,
+      "text": "Honestly, I think I think that's the bigger question."
+    },
+    {
+      "start": 474.739990234375,
+      "end": 476.5799865722656,
+      "text": "We can stabilize operations now."
+    },
+    {
+      "start": 476.6199951171875,
+      "end": 480.260009765625,
+      "text": "But if inbound and outbound volume stay at this level,"
+    },
+    {
+      "start": 480.260009765625,
+      "end": 484.8599853515625,
+      "text": "the current layout may keep creating bottlenecks no matter how disciplined the team is."
+    },
+    {
+      "start": 485.55999755859375,
+      "end": 486.9599914550781,
+      "text": "I'm thinking the same thing."
+    },
+    {
+      "start": 486.9599914550781,
+      "end": 492.739990234375,
+      "text": "We may be solving today's fire while tomorrow's fire is already picking our curtains."
+    },
+    {
+      "start": 493.3599853515625,
+      "end": 496.0,
+      "text": "Then the next step is to watch the data."
+    },
+    {
+      "start": 496.1400146484375,
+      "end": 499.8399963378906,
+      "text": "If shipping accuracy and picking speed improve over the next week,"
+    },
+    {
+      "start": 499.8399963378906,
+      "end": 502.4800109863281,
+      "text": "then the problem was mostly execution."
+    },
+    {
+      "start": 502.4800109863281,
+      "end": 506.3800048828125,
+      "text": "If not, we may need a more seriously layout redesign."
+    },
+    {
+      "start": 507.17999267578125,
+      "end": 512.719970703125,
+      "text": "Exactly. Let's use the next seven days to measure the impact of this changes."
+    },
+    {
+      "start": 513.3200073242188,
+      "end": 518.9000244140625,
+      "text": "Then we'll meet again Friday at 2 p.m., review the numbers and decide"
+    },
+    {
+      "start": 518.9000244140625,
+      "end": 526.2999877929688,
+      "text": "whether this is a short term recovery plan or the start of a bigger warehouse redesign."
+    },
+    {
+      "start": 526.5999755859375,
+      "end": 529.47998046875,
+      "text": "Sounds good. I'll get started with the floor team right away."
+    },
+    {
+      "start": 530.6799926757812,
+      "end": 532.3400268554688,
+      "text": "Thanks. Thanks, Carlos."
+    },
+    {
+      "start": 532.3400268554688,
+      "end": 538.1799926757812,
+      "text": "Let's fix the process before the process decides to embarrass us again."
+    }
+  ],
+  "language": "english"
+}
