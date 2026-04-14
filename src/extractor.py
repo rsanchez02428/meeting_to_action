@@ -16,6 +16,7 @@ or hallucinate. We need to catch all of that.
 
 import os
 import json
+import re
 from pathlib import Path
 from anthropic import Anthropic
 from dotenv import load_dotenv
@@ -139,8 +140,8 @@ def parse_llm_json(raw_text: str) -> dict:
         end = text.rfind("}") + 1
         text = text[start:end]
     
-    # Fix common JSON issues
-    text = text.replace("'", '"') # Single -> double quotes (crude but works)
+    # Fix trailing commas before } or ] (invalid JSON but common LLM output)
+    text = re.sub(r',\s*([}\]])', r'\1', text)
 
     try:
         return json.loads(text)
@@ -204,7 +205,7 @@ def validate_extraction(data: dict) -> dict:
 # === TEST IT ===
 if __name__ == "__main__":
     # Load the transcript from Phase 2
-    transcript_path = "outputs/transcript.json"
+    transcript_path = "outputs/transcript_2.json"
 
     if not Path(transcript_path).exists():
         # Use a sample transcript for testing
@@ -249,7 +250,7 @@ if __name__ == "__main__":
     with open("outputs/extraction.json", "w") as f:
         json.dump(result, f, indent=2)
 
-    print("\nSaved to outputs/extraction.json")
+    print("\nSaved to outputs/extraction_2.json")
     
     # Print a quick summary
     print(f"\n--- QUICK STATS ---")
