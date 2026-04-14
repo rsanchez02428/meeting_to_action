@@ -1,0 +1,119 @@
+{
+  "meeting_summary": "Meeting addressed critical warehouse operational issues including delayed shipments, inventory mismatches, and customer complaints. Immediate corrective actions were decided to address congestion, equipment failures, and process gaps, with a follow-up planned to determine if broader layout redesign is needed.",
+  "key_topics": [
+    {
+      "topic": "Warehouse congestion and layout issues",
+      "summary": "Overflow inventory in zones B and C is blocking picking lines, with forklifts and pickers competing for the same lanes, causing delays throughout the fulfillment process.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Equipment and training problems",
+      "summary": "Three handheld scanners went offline Tuesday, forcing manual recording, and two new temp workers lack proper training on scanning and labeling procedures.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Inventory visibility and system discrepancies",
+      "summary": "Manual entries and system mismatches are creating discrepancies between physical inventory and system records, leading to wasted search time and shipping errors.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Staging and dispatch coordination issues",
+      "summary": "Informal handoff process between staging and dispatch led to missing pallets and wrong loading bay assignments, causing partial shipments and customer delays.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Implement three immediate operational changes: re-slot overflow inventory out of zones B and C, set up pick-only lane during peak hours, and implement mandatory staging verification",
+      "context": "Address traffic congestion, visibility issues, and shipping accuracy problems",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Remove temp workers from independent picking until they complete refresher training",
+      "context": "Prevent continued scanning and labeling errors from inadequately trained workers",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Schedule follow-up meeting for Friday at 2 PM to review impact and decide on potential layout redesign",
+      "context": "Determine if issues are temporary or indicate need for broader warehouse redesign",
+      "made_by": "Both participants"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Move overflow inventory out of zones B and C",
+      "owner": "Carlos",
+      "deadline": "Today",
+      "priority": "high",
+      "context": "Immediate fix to reduce warehouse congestion and traffic conflicts"
+    },
+    {
+      "task": "Create a pick-only lane during peak hours",
+      "owner": "Carlos",
+      "deadline": "Today",
+      "priority": "high",
+      "context": "Prevent forklifts from blocking order selectors during busy periods"
+    },
+    {
+      "task": "Retrain temp workers before returning them to independent tasks",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "high",
+      "context": "Eliminate scanning and labeling errors from inadequate training"
+    },
+    {
+      "task": "Run targeted cycle count on affected SKUs and provide variance report",
+      "owner": "Carlos",
+      "deadline": "End of day",
+      "priority": "high",
+      "context": "Clean up inventory discrepancies on high-volume items showing mismatches"
+    },
+    {
+      "task": "Brief floor team and start moving overflow stock",
+      "owner": "Carlos",
+      "deadline": "10:30 AM",
+      "priority": "high",
+      "context": "Immediate implementation of operational changes"
+    },
+    {
+      "task": "Assign lead to supervise new lane setup and temp worker refresher",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Ensure proper implementation of new processes"
+    },
+    {
+      "task": "Notify dispatch about potential staging delays",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Manage expectations while stabilizing processes"
+    },
+    {
+      "task": "Coordinate with dispatch and IT on carrier notifications and scanner repairs",
+      "owner": "Meeting leader",
+      "deadline": "Not specified",
+      "priority": "high",
+      "context": "Support operational changes and resolve equipment issues"
+    },
+    {
+      "task": "Push IT to expedite remaining scanner repairs",
+      "owner": "Meeting leader",
+      "deadline": "Tomorrow afternoon",
+      "priority": "high",
+      "context": "Restore full scanning capability to prevent manual entry errors"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Are warehouse issues temporary due to seasonal overflow and equipment trouble, or signs that current layout no longer supports volume?",
+      "raised_by": "Meeting leader",
+      "context": "Determine if broader warehouse redesign is needed beyond immediate fixes"
+    }
+  ],
+  "attendees_mentioned": [
+    "Carlos"
+  ],
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "Review impact of changes and decide whether short-term recovery plan is sufficient or if broader warehouse redesign is needed"
+}
