@@ -185,7 +185,7 @@ if __name__ == "__main__":
     """
     import json
 
-    result = transcribe_audio("samples/test_meeting.m4a")
+    result = transcribe_audio("samples/test_meeting_3.m4a")
 
     print(f"Language detected: {result['language']}")
     print(f"Total segments: {len(result['segments'])}")
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     print(result["text"][:500])  # Print first 500 chars
 
     # Save full result for the next phase
-    with open("outputs/transcript.json", "w") as f:
+    with open("outputs/transcript_3.json", "w") as f:
         json.dump(result, f, indent=2)
 
-    print("\nSaved to outputs/transcript.json")
+    print("\nSaved to outputs/transcript_3.json")
