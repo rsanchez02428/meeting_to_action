@@ -1,0 +1,621 @@
+{
+  "text": "Hey, how are you holding up? Not bad. A little fried, honestly. I had three back-to-back calls this morning, and one of them absolutely could be an email, maybe two. That's the dream. I had one yesterday where six people joined just to agree with each other in slightly different words. Strong years of peril. Elite efficiency. How about you? You surviving? Yeah, more or less. My dog woke me up at 5.30 for no reason other than personal growth, apparently. That's generous of him. He's committed to building character. Love that. Anyway, I wanted to use this time to figure out where we are on the vendor proposal. Are we actually comfortable moving forward with Redwood, or are we still pretending we need more time? I think we're close. I reread the proposal this morning, and overall it's solid. Pricing with range, the implementation timeline looks reasonable, and they are answering most of the security questions without sounding like they're making things up on the spot. Always a plus. Huge plus. What's still bothering you, if I may ask? Mostly the support piece. The proposal says priority response, which sounds nice, but it's about in the very intentional vendor way. Right. The kind of vague where it means something until you need it to mean something? Exactly. Like, does priority mean two hours, same day, before retirement? Classic. I don't think it kills the deal. It just doesn't want us acting surprised later if we assume more than they promise. Fair. Outside of that, though, you're not seeing anything that would make you stop? Not really, honestly. If we keep dragging this out, we're probably just buying ourselves more meetings. I don't think another week changes the current decision. That's kind of where I am, too. We already talked to three vendors, and Redwood's the only one that didn't make me feel like we'd be paying extra to create our own problems. Yeah, one of the others somehow... Why are you laughing? One of the others somehow... Oh my god. Okay, let's calm down. I'm sorry! Yeah, one of the others somehow managed to be both more expensive and less clear, which is a pretty impressive combination. It takes effort. Real craftsmanship. So if we did move ahead, what would you still want before we send anything back? I want one email to clarify support response times, and I'd probably make a small change in the internal summary before it goes to finance. Right now it's a little too polite about the implementation risk. Too polite? How? It says the rollout may require light coordination across teams, which is technically true if you define light as annoying enough to become my problem. Ah, so corporate fiction. Exactly. I think we should just say it needs the coordination from IT and OPS during the first two weeks, so nobody acts shocked later. Agreed. Better to sound mildly annoying now than wildly optimistic and stupid later. That's basically my whole professional philosophy. It's a strong one. Are you still good with the budget number, or is finance going to have a dramatic reaction to this? They won't love it, but they were never going to love any number that involves spending money. This is still under the cap we discussed, so I think it's fine. Okay, good. The bigger question for me is timing. If we want this live next quarter, we probably shouldn't sit on it much longer. No, we shouldn't. And if we went into next week, would you say the same thing with more current invites? That kind of thoughts. Unfortunately true. Also completely unrelated. Did your brother ever end up mobbing? He did, yeah, finally. Whole thing took forever. I helped him carry a couch up three flights of stairs, which felt less like helping family and more like being punished for past decisions. That's brutal. It was. I'm still sorry I didn't even get pizza out of it. That's actually offensive. Thank you. You can't ask someone to help move and then not at least pretend to provide food. Exactly, we live in a society. Barely. Alright, back to this. Here's what makes sense to me. You clean up the summary language and send Redwood the support question, and I'll forward the updated version to finance once that's in place. Yeah, that works. I can get the summary updated next week, next hour, and send the email right after. Perfect. Then unless they come back with something weird on support, I don't see a reason not to move ahead. Same. If they answer clearly, I'm comfortable with it. The only thing I'm still not truly sure about is whether we want ops in the kickoff meeting right away, or if we bring them in after the contract is signed. I was thinking about that too. Early involvement might save us confusion later, but also creates more opinions before anything is even finalized. Which is always the risk. Maybe let's not pull them in today. If Redwood comes back with a clean answer and finance doesn't throw a chair, then we add ops at kickoff. Yeah, I like that better. Fewer moving parts for now. Exactly. Alright, send me the revised summary when you've got it, and I'll take it from there. I will do. Appreciate it. Yep, good luck with the rest of the day. You too. And maybe take one meeting off your calendar before your soul leaves your body. I'll do my best.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.0,
+      "text": "Hey, how are you holding up?"
+    },
+    {
+      "start": 3.0,
+      "end": 4.0,
+      "text": "Not bad."
+    },
+    {
+      "start": 4.0,
+      "end": 5.0,
+      "text": "A little fried, honestly."
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "text": "I had three back-to-back calls this morning, and one of them absolutely could be an email,"
+    },
+    {
+      "start": 10.0,
+      "end": 11.0,
+      "text": "maybe two."
+    },
+    {
+      "start": 11.0,
+      "end": 12.0,
+      "text": "That's the dream."
+    },
+    {
+      "start": 12.0,
+      "end": 16.0,
+      "text": "I had one yesterday where six people joined just to agree with each other in slightly"
+    },
+    {
+      "start": 16.0,
+      "end": 17.0,
+      "text": "different words."
+    },
+    {
+      "start": 17.0,
+      "end": 19.0,
+      "text": "Strong years of peril."
+    },
+    {
+      "start": 19.0,
+      "end": 20.0,
+      "text": "Elite efficiency."
+    },
+    {
+      "start": 20.0,
+      "end": 21.0,
+      "text": "How about you?"
+    },
+    {
+      "start": 21.0,
+      "end": 22.0,
+      "text": "You surviving?"
+    },
+    {
+      "start": 22.0,
+      "end": 23.0,
+      "text": "Yeah, more or less."
+    },
+    {
+      "start": 23.0,
+      "end": 27.0,
+      "text": "My dog woke me up at 5.30 for no reason other than personal growth, apparently."
+    },
+    {
+      "start": 27.0,
+      "end": 29.0,
+      "text": "That's generous of him."
+    },
+    {
+      "start": 29.0,
+      "end": 31.0,
+      "text": "He's committed to building character."
+    },
+    {
+      "start": 31.0,
+      "end": 32.0,
+      "text": "Love that."
+    },
+    {
+      "start": 32.0,
+      "end": 36.0,
+      "text": "Anyway, I wanted to use this time to figure out where we are on the vendor proposal."
+    },
+    {
+      "start": 36.0,
+      "end": 40.0,
+      "text": "Are we actually comfortable moving forward with Redwood, or are we still pretending we"
+    },
+    {
+      "start": 40.0,
+      "end": 41.0,
+      "text": "need more time?"
+    },
+    {
+      "start": 41.0,
+      "end": 43.0,
+      "text": "I think we're close."
+    },
+    {
+      "start": 43.0,
+      "end": 46.0,
+      "text": "I reread the proposal this morning, and overall it's solid."
+    },
+    {
+      "start": 46.0,
+      "end": 51.0,
+      "text": "Pricing with range, the implementation timeline looks reasonable, and they are answering most"
+    },
+    {
+      "start": 51.0,
+      "end": 56.0,
+      "text": "of the security questions without sounding like they're making things up on the spot."
+    },
+    {
+      "start": 56.0,
+      "end": 58.0,
+      "text": "Always a plus."
+    },
+    {
+      "start": 58.0,
+      "end": 59.0,
+      "text": "Huge plus."
+    },
+    {
+      "start": 59.0,
+      "end": 61.0,
+      "text": "What's still bothering you, if I may ask?"
+    },
+    {
+      "start": 61.0,
+      "end": 64.0,
+      "text": "Mostly the support piece."
+    },
+    {
+      "start": 64.0,
+      "end": 69.0,
+      "text": "The proposal says priority response, which sounds nice, but it's about in the very intentional"
+    },
+    {
+      "start": 69.0,
+      "end": 70.0,
+      "text": "vendor way."
+    },
+    {
+      "start": 70.0,
+      "end": 71.0,
+      "text": "Right."
+    },
+    {
+      "start": 71.0,
+      "end": 74.0,
+      "text": "The kind of vague where it means something until you need it to mean something?"
+    },
+    {
+      "start": 74.0,
+      "end": 75.0,
+      "text": "Exactly."
+    },
+    {
+      "start": 75.0,
+      "end": 80.0,
+      "text": "Like, does priority mean two hours, same day, before retirement?"
+    },
+    {
+      "start": 80.0,
+      "end": 81.0,
+      "text": "Classic."
+    },
+    {
+      "start": 81.0,
+      "end": 84.0,
+      "text": "I don't think it kills the deal."
+    },
+    {
+      "start": 85.0,
+      "end": 91.0,
+      "text": "It just doesn't want us acting surprised later if we assume more than they promise."
+    },
+    {
+      "start": 91.0,
+      "end": 92.0,
+      "text": "Fair."
+    },
+    {
+      "start": 92.0,
+      "end": 95.0,
+      "text": "Outside of that, though, you're not seeing anything that would make you stop?"
+    },
+    {
+      "start": 95.0,
+      "end": 97.0,
+      "text": "Not really, honestly."
+    },
+    {
+      "start": 97.0,
+      "end": 102.0,
+      "text": "If we keep dragging this out, we're probably just buying ourselves more meetings."
+    },
+    {
+      "start": 102.0,
+      "end": 105.0,
+      "text": "I don't think another week changes the current decision."
+    },
+    {
+      "start": 105.0,
+      "end": 107.0,
+      "text": "That's kind of where I am, too."
+    },
+    {
+      "start": 107.0,
+      "end": 112.0,
+      "text": "We already talked to three vendors, and Redwood's the only one that didn't make me feel like"
+    },
+    {
+      "start": 112.0,
+      "end": 115.0,
+      "text": "we'd be paying extra to create our own problems."
+    },
+    {
+      "start": 115.0,
+      "end": 117.0,
+      "text": "Yeah, one of the others somehow..."
+    },
+    {
+      "start": 121.0,
+      "end": 123.0,
+      "text": "Why are you laughing?"
+    },
+    {
+      "start": 127.0,
+      "end": 130.0,
+      "text": "One of the others somehow..."
+    },
+    {
+      "start": 133.0,
+      "end": 135.0,
+      "text": "Oh my god."
+    },
+    {
+      "start": 135.0,
+      "end": 137.0,
+      "text": "Okay, let's calm down."
+    },
+    {
+      "start": 143.0,
+      "end": 145.0,
+      "text": "I'm sorry!"
+    },
+    {
+      "start": 147.0,
+      "end": 152.0,
+      "text": "Yeah, one of the others somehow managed to be both more expensive and less clear,"
+    },
+    {
+      "start": 152.0,
+      "end": 154.0,
+      "text": "which is a pretty impressive combination."
+    },
+    {
+      "start": 154.0,
+      "end": 156.0,
+      "text": "It takes effort."
+    },
+    {
+      "start": 156.0,
+      "end": 157.0,
+      "text": "Real craftsmanship."
+    },
+    {
+      "start": 157.0,
+      "end": 161.0,
+      "text": "So if we did move ahead, what would you still want before we send anything back?"
+    },
+    {
+      "start": 161.0,
+      "end": 166.0,
+      "text": "I want one email to clarify support response times,"
+    },
+    {
+      "start": 167.0,
+      "end": 172.0,
+      "text": "and I'd probably make a small change in the internal summary before it goes to finance."
+    },
+    {
+      "start": 172.0,
+      "end": 175.0,
+      "text": "Right now it's a little too polite about the implementation risk."
+    },
+    {
+      "start": 175.0,
+      "end": 177.0,
+      "text": "Too polite? How?"
+    },
+    {
+      "start": 177.0,
+      "end": 180.0,
+      "text": "It says the rollout may require light coordination across teams,"
+    },
+    {
+      "start": 180.0,
+      "end": 186.0,
+      "text": "which is technically true if you define light as annoying enough to become my problem."
+    },
+    {
+      "start": 186.0,
+      "end": 188.0,
+      "text": "Ah, so corporate fiction."
+    },
+    {
+      "start": 188.0,
+      "end": 189.0,
+      "text": "Exactly."
+    },
+    {
+      "start": 189.0,
+      "end": 197.0,
+      "text": "I think we should just say it needs the coordination from IT and OPS during the first two weeks,"
+    },
+    {
+      "start": 197.0,
+      "end": 199.0,
+      "text": "so nobody acts shocked later."
+    },
+    {
+      "start": 199.0,
+      "end": 205.0,
+      "text": "Agreed. Better to sound mildly annoying now than wildly optimistic and stupid later."
+    },
+    {
+      "start": 205.0,
+      "end": 208.0,
+      "text": "That's basically my whole professional philosophy."
+    },
+    {
+      "start": 208.0,
+      "end": 209.0,
+      "text": "It's a strong one."
+    },
+    {
+      "start": 209.0,
+      "end": 215.0,
+      "text": "Are you still good with the budget number, or is finance going to have a dramatic reaction to this?"
+    },
+    {
+      "start": 216.0,
+      "end": 221.0,
+      "text": "They won't love it, but they were never going to love any number that involves spending money."
+    },
+    {
+      "start": 221.0,
+      "end": 224.0,
+      "text": "This is still under the cap we discussed, so I think it's fine."
+    },
+    {
+      "start": 224.0,
+      "end": 225.0,
+      "text": "Okay, good."
+    },
+    {
+      "start": 225.0,
+      "end": 227.0,
+      "text": "The bigger question for me is timing."
+    },
+    {
+      "start": 227.0,
+      "end": 232.0,
+      "text": "If we want this live next quarter, we probably shouldn't sit on it much longer."
+    },
+    {
+      "start": 232.0,
+      "end": 233.0,
+      "text": "No, we shouldn't."
+    },
+    {
+      "start": 233.0,
+      "end": 238.0,
+      "text": "And if we went into next week, would you say the same thing with more current invites?"
+    },
+    {
+      "start": 238.0,
+      "end": 240.0,
+      "text": "That kind of thoughts."
+    },
+    {
+      "start": 240.0,
+      "end": 242.0,
+      "text": "Unfortunately true."
+    },
+    {
+      "start": 242.0,
+      "end": 244.0,
+      "text": "Also completely unrelated."
+    },
+    {
+      "start": 244.0,
+      "end": 247.0,
+      "text": "Did your brother ever end up mobbing?"
+    },
+    {
+      "start": 249.0,
+      "end": 251.0,
+      "text": "He did, yeah, finally."
+    },
+    {
+      "start": 251.0,
+      "end": 253.0,
+      "text": "Whole thing took forever."
+    },
+    {
+      "start": 253.0,
+      "end": 256.0,
+      "text": "I helped him carry a couch up three flights of stairs,"
+    },
+    {
+      "start": 256.0,
+      "end": 262.0,
+      "text": "which felt less like helping family and more like being punished for past decisions."
+    },
+    {
+      "start": 262.0,
+      "end": 263.0,
+      "text": "That's brutal."
+    },
+    {
+      "start": 263.0,
+      "end": 264.0,
+      "text": "It was."
+    },
+    {
+      "start": 264.0,
+      "end": 268.0,
+      "text": "I'm still sorry I didn't even get pizza out of it."
+    },
+    {
+      "start": 269.0,
+      "end": 271.0,
+      "text": "That's actually offensive."
+    },
+    {
+      "start": 271.0,
+      "end": 272.0,
+      "text": "Thank you."
+    },
+    {
+      "start": 275.0,
+      "end": 280.0,
+      "text": "You can't ask someone to help move and then not at least pretend to provide food."
+    },
+    {
+      "start": 280.0,
+      "end": 283.0,
+      "text": "Exactly, we live in a society."
+    },
+    {
+      "start": 284.0,
+      "end": 285.0,
+      "text": "Barely."
+    },
+    {
+      "start": 285.0,
+      "end": 286.0,
+      "text": "Alright, back to this."
+    },
+    {
+      "start": 288.0,
+      "end": 289.0,
+      "text": "Here's what makes sense to me."
+    },
+    {
+      "start": 289.0,
+      "end": 294.0,
+      "text": "You clean up the summary language and send Redwood the support question,"
+    },
+    {
+      "start": 294.0,
+      "end": 298.0,
+      "text": "and I'll forward the updated version to finance once that's in place."
+    },
+    {
+      "start": 298.0,
+      "end": 299.0,
+      "text": "Yeah, that works."
+    },
+    {
+      "start": 299.0,
+      "end": 305.0,
+      "text": "I can get the summary updated next week, next hour, and send the email right after."
+    },
+    {
+      "start": 305.0,
+      "end": 306.0,
+      "text": "Perfect."
+    },
+    {
+      "start": 306.0,
+      "end": 310.0,
+      "text": "Then unless they come back with something weird on support,"
+    },
+    {
+      "start": 310.0,
+      "end": 312.0,
+      "text": "I don't see a reason not to move ahead."
+    },
+    {
+      "start": 312.0,
+      "end": 313.0,
+      "text": "Same."
+    },
+    {
+      "start": 313.0,
+      "end": 316.0,
+      "text": "If they answer clearly, I'm comfortable with it."
+    },
+    {
+      "start": 316.0,
+      "end": 322.0,
+      "text": "The only thing I'm still not truly sure about is whether we want ops in the kickoff meeting right away,"
+    },
+    {
+      "start": 322.0,
+      "end": 326.0,
+      "text": "or if we bring them in after the contract is signed."
+    },
+    {
+      "start": 326.0,
+      "end": 328.0,
+      "text": "I was thinking about that too."
+    },
+    {
+      "start": 328.0,
+      "end": 332.0,
+      "text": "Early involvement might save us confusion later,"
+    },
+    {
+      "start": 332.0,
+      "end": 336.0,
+      "text": "but also creates more opinions before anything is even finalized."
+    },
+    {
+      "start": 337.0,
+      "end": 339.0,
+      "text": "Which is always the risk."
+    },
+    {
+      "start": 339.0,
+      "end": 342.0,
+      "text": "Maybe let's not pull them in today."
+    },
+    {
+      "start": 342.0,
+      "end": 349.0,
+      "text": "If Redwood comes back with a clean answer and finance doesn't throw a chair,"
+    },
+    {
+      "start": 349.0,
+      "end": 352.0,
+      "text": "then we add ops at kickoff."
+    },
+    {
+      "start": 352.0,
+      "end": 354.0,
+      "text": "Yeah, I like that better."
+    },
+    {
+      "start": 354.0,
+      "end": 355.0,
+      "text": "Fewer moving parts for now."
+    },
+    {
+      "start": 355.0,
+      "end": 356.0,
+      "text": "Exactly."
+    },
+    {
+      "start": 357.0,
+      "end": 361.0,
+      "text": "Alright, send me the revised summary when you've got it, and I'll take it from there."
+    },
+    {
+      "start": 361.0,
+      "end": 362.0,
+      "text": "I will do."
+    },
+    {
+      "start": 362.0,
+      "end": 363.0,
+      "text": "Appreciate it."
+    },
+    {
+      "start": 363.0,
+      "end": 365.0,
+      "text": "Yep, good luck with the rest of the day."
+    },
+    {
+      "start": 365.0,
+      "end": 366.0,
+      "text": "You too."
+    },
+    {
+      "start": 366.0,
+      "end": 370.0,
+      "text": "And maybe take one meeting off your calendar before your soul leaves your body."
+    },
+    {
+      "start": 370.0,
+      "end": 372.0,
+      "text": "I'll do my best."
+    }
+  ],
+  "language": "english"
+}
