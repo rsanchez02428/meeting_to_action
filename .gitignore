@@ -181,4 +181,4 @@ cython_debug/
 .cursorindexingignore
 
 # ignore samples
-samples/*
+samples/test*
