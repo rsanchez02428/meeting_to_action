@@ -34,13 +34,13 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
     verification_prompt = f"""You are a meticulous quality assurance reviewer 
     for meeting notes. 
     Your job is to compare extracted meeting data against the original 
-    transcript and find any eerors, omissions, or hallucinations.
+    transcript and find any errors, omissions, or hallucinations.
 
     ORIGINAL TRANSCRIPT:
     {transcript}
 
     EXTRACTED DATA:
-    {json.jumps(extracted_data, indent=2)}
+    {json.dumps(extracted_data, indent=2)}
 
     Perform the following checks and return a JSON object:
 
@@ -89,11 +89,11 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
 
     Respond with ONLY the JSON object."""
 
-    response = client.message.create( 
+    response = client.messages.create( 
         model="claude-sonnet-4-20250514",
         max_tokens=4000,
         temperature=0,
-        message=[{
+        messages=[{
             "role": "user", 
             "content": verification_prompt
         }]
@@ -139,12 +139,12 @@ def apply_corrections(original: dict, verification:dict) -> dict:
                 print(change)
     return corrected
 
-# === TEST IT ===
+# === TEST IT ===   # In the terminal, run: python -m src.verifier. This is due to src.extracor being imported. If we just run python src/verifier.py, it won't work because of the import statement. By running it as a module, we ensure the imports work correctly.
 if __name__ == "__main__":
     # Load the transcript and extraction from the previous phases
-    with open("outputs/transcript.json", "r") as f:
+    with open("outputs/transcript_2.json", "r") as f:
         transcript_data = json.load(f)
-    with open("open/extraction.json", "r") as f:
+    with open("outputs/extraction_2.json", "r") as f:
         extraction_data = json.load(f)
     
     print("Verifying extraction...")
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verified_extraction.json", "w") as f:
+    with open("outputs/verified_extraction_2.json", "w") as f:
         json.dump(final_data, f, indent=2)
     
-    print("\nFinal verified data saved to outputs/verified_extraction.json")
+    print("\nFinal verified data saved to outputs/verified_extraction_2.json")
