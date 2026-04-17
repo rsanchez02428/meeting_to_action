@@ -41,7 +41,7 @@ def load_prompt(prompt_name: str) -> str:
         raise FileNotFoundError(f"Prompt file not found: {prompt_path}")
     return prompt_path.read_text()
 
-def extract_meeting_data(transcript: str, prompt_version: str = "extraction_v1.txt") -> dict:
+def extract_meeting_data(transcript: str, prompt_version: str = "extraction_v2.txt") -> dict:
     """
     Extract structured data from a meeting transcript using Claude.
     
@@ -205,7 +205,7 @@ def validate_extraction(data: dict) -> dict:
 # === TEST IT ===
 if __name__ == "__main__":
     # Load the transcript from Phase 2
-    transcript_path = "outputs/transcript_3.json"
+    transcript_path = "outputs/transcript.json"
 
     if not Path(transcript_path).exists():
         # Use a sample transcript for testing
@@ -247,10 +247,10 @@ if __name__ == "__main__":
     print(json.dumps(result, indent=2))
 
     # Save for the next phase
-    with open("outputs/extraction_3.json", "w") as f:
+    with open("outputs/extraction_v2.json", "w") as f:
         json.dump(result, f, indent=2)
 
-    print("\nSaved to outputs/extraction_3.json")
+    print("\nSaved to outputs/extraction_v2.json")
     
     # Print a quick summary
     print(f"\n--- QUICK STATS ---")
