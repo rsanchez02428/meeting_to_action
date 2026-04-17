@@ -1,0 +1,171 @@
+{
+  "meeting_summary": "Meeting addressed critical warehouse operational issues including delayed shipments, inventory mismatches, and customer complaints. Immediate corrective actions were decided including re-slotting overflow inventory, creating dedicated pick lanes, and implementing staging verification processes.",
+  "key_topics": [
+    {
+      "topic": "Warehouse congestion and layout issues",
+      "summary": "Overflow inventory in zones B and C is blocking picking lines, with forklifts and pickers competing for the same lanes causing delays.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Equipment and training problems",
+      "summary": "Three handheld scanners went offline Tuesday, forcing manual recording, and temp workers lack proper training on scanning and labeling procedures.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Inventory visibility and system discrepancies",
+      "summary": "Manual entries and system mismatches are causing lost visibility, with the warehouse floor and system showing different inventory stories.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Shipping and staging process failures",
+      "summary": "Informal handoff processes are causing orders to be marked ready when they're not, leading to partial loads and delayed customer deliveries.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Re-slot overflow inventory out of zones B and C starting today",
+      "context": "To reduce congestion and traffic conflicts between forklifts and pickers",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Set up a pick-only lane during peak hours",
+      "context": "To prevent forklifts from blocking order selectors during busy periods",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Implement mandatory staging verification check before dispatch confirmation",
+      "context": "To prevent informal handoffs that result in incomplete or incorrectly staged orders",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Remove temp workers from independent picking until retrained",
+      "context": "Temp workers haven't fully learned scan confirmation and pallet labeling steps, causing errors",
+      "made_by": "Meeting leader"
+    },
+    {
+      "decision": "Teams will share scanners until repairs are completed",
+      "context": "Only one replacement scanner available today, other units to be repaired by tomorrow afternoon",
+      "made_by": "Meeting leader"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Move overflow inventory out of zones B and C",
+      "owner": "Carlos",
+      "deadline": "today",
+      "priority": "high",
+      "context": "Immediate fix to reduce warehouse congestion and traffic conflicts",
+      "source_quote": "you'll move overflow inventory out of zones B and C today"
+    },
+    {
+      "task": "Create a pick-only lane during peak hours",
+      "owner": "Carlos",
+      "deadline": "today",
+      "priority": "high",
+      "context": "Prevent forklifts from blocking order selectors",
+      "source_quote": "you'll create a pick only lane during pick hours"
+    },
+    {
+      "task": "Retrain temp workers before returning to independent tasks",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "high",
+      "context": "Temp workers need proper training on scanning and labeling procedures",
+      "source_quote": "you'll retain the temp workers before they go back to independent tasks"
+    },
+    {
+      "task": "Run targeted cycle count on affected SKUs",
+      "owner": "Carlos",
+      "deadline": "end of day",
+      "priority": "high",
+      "context": "Clean up inventory discrepancies on high-volume items with mismatches",
+      "source_quote": "you'll run a target cycle count on the affected SKUs and send me the results by end of day"
+    },
+    {
+      "task": "Brief the floor team on changes",
+      "owner": "Carlos",
+      "deadline": "right after this meeting",
+      "priority": "high",
+      "context": "Communicate immediate operational changes to warehouse staff",
+      "source_quote": "I can brief the floor team right after this meeting"
+    },
+    {
+      "task": "Start moving overflow stock",
+      "owner": "Carlos",
+      "deadline": "by 10:30",
+      "priority": "high",
+      "context": "Begin physical relocation of inventory causing congestion",
+      "source_quote": "start moving overflow stock by 1030"
+    },
+    {
+      "task": "Assign a lead to supervise new lane setup",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Ensure proper implementation of pick-only lane during peak hours",
+      "source_quote": "I'll also assign a lead to supervise the new lane setup"
+    },
+    {
+      "task": "Assign a lead to supervise temp worker refresher",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Oversee retraining of temporary workers on proper procedures",
+      "source_quote": "I'll also assign a lead to supervise... the temp worker refresher"
+    },
+    {
+      "task": "Notify dispatch about staging time delays",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Manage expectations while stabilizing verification processes",
+      "source_quote": "I'll notify dispatch that staging time may run slightly longer today"
+    },
+    {
+      "task": "Pull two team members for cycle count after lunch",
+      "owner": "Carlos",
+      "deadline": "after lunch",
+      "priority": "medium",
+      "context": "Execute targeted inventory count on high-movement SKUs",
+      "source_quote": "Pull to team members after lunch and do a targeted count"
+    },
+    {
+      "task": "Prioritize eight SKUs with highest movement for count",
+      "owner": "Carlos",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Focus cycle count efforts on most impactful inventory items",
+      "source_quote": "I'll prioritize the eight SKUs and the highest movement"
+    },
+    {
+      "task": "Coordinate with dispatch on carrier awareness",
+      "owner": "Meeting leader",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Ensure carriers are informed of possible short staging delays",
+      "source_quote": "I'll make sure carriers are aware of possible short staging delays"
+    },
+    {
+      "task": "Push IT to expedite scanner repairs",
+      "owner": "Meeting leader",
+      "deadline": "Not specified",
+      "priority": "high",
+      "context": "Accelerate repair of remaining broken scanner units",
+      "source_quote": "I'll push IT to get remaining scanners repair as fast as possible"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Are warehouse issues temporary due to seasonal overflow and equipment trouble, or signs that current layout no longer supports volume?",
+      "raised_by": "Meeting leader",
+      "context": "Determining whether this is a short-term operational fix or indicates need for major warehouse redesign"
+    }
+  ],
+  "attendees_mentioned": [
+    "Carlos",
+    "Meeting leader"
+  ],
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "Review impact data from implemented changes and decide whether short-term recovery plan or start of bigger warehouse redesign - scheduled for Friday at 2 p.m."
+}
