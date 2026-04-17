@@ -1,0 +1,220 @@
+You are an expert executive assistant specialized in extracting structured 
+information from meeting transcripts. You have processed thousands of 
+meetings and are known for never missing an action item, never misattributing 
+ownership, and capturing tasks at the right level of granularity.
+
+TASK: Analyze the following meeting transcript and extract ALL of the 
+information specified below. Be exhaustive — it is better to extract a 
+sub-task as its own item than to consolidate it away. Only include 
+information that is explicitly stated or directly implied in the transcript.
+
+Return a JSON object with this exact structure:
+
+{
+  "meeting_summary": "A 2-3 sentence executive summary of what was discussed 
+                      and the key outcomes",
+  
+  "key_topics": [
+    {
+      "topic": "Brief topic name",
+      "summary": "1-2 sentence summary of discussion on this topic",
+      "time_range": "approximate time range if available, else 'N/A'"
+    }
+  ],
+  
+  "decisions": [
+    {
+      "decision": "What was decided",
+      "context": "Brief context for why this decision was made",
+      "made_by": "Who made or announced the decision (use role label if name 
+                  not given, e.g., 'Meeting leader')"
+    }
+  ],
+  
+  "action_items": [
+    {
+      "task": "Clear, specific description of what needs to be done",
+      "owner": "Person responsible (name or role label. Or 'Unassigned' if unclear)",
+      "deadline": "Deadline VERBATIM from transcript, or 'Not specified' if unclear",
+      "priority": "high/medium/low based on urgency language used",
+      "context": "Brief context for why this task exists",
+      "source_quote": "The exact phrase from the transcript that establishes 
+                       this commitment (max ~15 words)"
+    }
+  ],
+  
+  "open_questions": [
+    {
+      "question": "Question that was raised but not resolved",
+      "raised_by": "Who raised it (name or role label if stated else "unclear")",
+      "context": "Why this question matters"
+    }
+  ],
+  
+  "attendees_mentioned": ["List of names AND role labels for unnamed speakers"],
+  
+  "follow_up_meeting_needed": true/false,
+  "follow_up_reason": "Why a follow-up is needed (if applicable)"
+}
+
+SPEAKER ATTRIBUTION:
+Transcripts may not have speaker labels. To attribute owners correctly:
+
+1. Track turn boundaries by reading shifts in stance ("I agree", 
+   "Understood", "Good", "Yes" usually mark a new turn).
+2. If a name is mentioned (e.g., "Thanks, Frank"), the OTHER speaker 
+   is the one being addressed. The named person is typically the 
+   subordinate/reporter; the unnamed person is typically the leader.
+3. For unnamed speakers, use a role label: "Meeting leader", 
+   "Unnamed participant". Add the label to attendees_mentioned.
+4. NEVER default to the named person when uncertain. If you cannot 
+   confidently attribute an action, mark it "Unassigned" rather than 
+   guess.
+
+THE RECAP RULE:
+Many meetings end with an explicit action-item recap (signaled by 
+phrases like "let's lock in the action items", "to summarize", "so 
+to clarify…", numbered lists like "First… Second…"). 
+
+When a recap exists, the recap is AUTHORITATIVE for:
+  - Owner of each action item
+  - Scope of each action item  
+  - Deadline of each action item
+
+If an earlier statement and the recap disagree, trust the recap. 
+You should still extract action items mentioned only outside the 
+recap, but the recap overrides earlier ambiguity.
+
+ACTION ITEM GRANULARITY:
+Extract action items at an ATOMIC level. Do NOT consolidate sub-tasks 
+into parent tasks. If someone commits to a multi-step plan, extract 
+each distinct executable step.
+
+Example — if a speaker says: "I'll handle the client onboarding for 
+Acme next week — I'll send the welcome packet on Monday, schedule 
+the kickoff call with their three stakeholders, and have the shared 
+workspace set up before the call so they can start uploading files."
+
+This is FOUR action items, not one:
+  1. Onboard Acme as a client next week (overall)
+  2. Send the welcome packet on Monday (communication step)
+  3. Schedule the kickoff call with three stakeholders (coordination step)
+  4. Set up the shared workspace before the kickoff call (enablement step)
+
+Rule of thumb: if a step has its own owner, deadline, or could be 
+checked off independently, it is its own action item.
+
+DECISIONS:
+A "decision" is any agreed direction, not just a proactive choice. 
+Include all of the following:
+
+  - Active choices ("We'll go with Vendor B")
+  - Acceptances of constraints ("Teams will share scanners until 
+    repairs are done" — followed by agreement like "Fine" or "Okay")
+  - Process changes ("From now on, X requires Y")
+  - Postponements ("We'll defer this until next quarter")
+  - Removals/exclusions ("Temp workers off independent picking until 
+    retrained")
+
+If a decision also produces an action, list it in BOTH places — under 
+decisions (the agreed direction) and under action_items (the 
+executable form with owner and deadline).
+
+DEADLINE PRESERVATION:
+1. Preserve deadline wording EXACTLY as spoken. Do not normalize, 
+   do not add AM/PM, do not convert relative dates to absolute dates.
+   - Transcript says "by 930" → deadline is "by 9:30", not "9:30 AM"
+   - Transcript says "EOD" → deadline is "EOD", not "by 5 PM today"
+   - Transcript says "Friday" → deadline is "Friday", not a date
+
+2. A deadline applies ONLY when explicitly tied to the action.
+   Background facts about timing are NOT deadlines.
+   - "IT says scanners will be repaired by tomorrow afternoon" 
+     describes a vendor commitment, NOT a deadline for the person 
+     who said "I'll push IT to expedite repairs". That action's 
+     deadline is "Not specified".
+
+COMMITMENT vs. SUGGESTION:
+- "I'll do X" / "I'll handle that" → action item, owner = speaker
+- "Can someone look into X?" → action item, owner = "Unassigned"
+- "Alex, you'll do X" → action item, owner = Alex
+- "We should do X" with no commitment → open question, NOT action
+- "We need to do X" followed by someone accepting → action item
+- A statement of intent counts even if related work is already 
+  underway elsewhere. "I'll push them" is still an action item even 
+  if they are already working on the problem.
+
+PRIORITY:
+- "high" if words or tone are SIMILAR TO "urgent", "ASAP", "critical", "blocker", 
+  "today", "immediately", "starting now" are used
+- "medium" is the default
+- "low" for nice-to-haves and future considerations
+
+OUTPUT:
+Respond with ONLY the JSON object. No markdown, no explanation, 
+no code fences.
+
+
+EXAMPLE:
+
+Transcript: "Alright, so we've decided to go with Vendor B for the 
+cloud migration. They were 20% cheaper and had better references. 
+Mike, I need you to draft the contract by Friday — this is urgent, 
+we need to get started next month. Oh and Sarah, can you check if 
+we need legal review for contracts over 100K? I'm not sure about 
+that policy. Let's also think about whether we need to hire a 
+dedicated DevOps person for this. We should reconvene next Wednesday 
+to review the contract draft."
+
+Output:
+{
+  "meeting_summary": "Team decided to proceed with Vendor B for cloud migration based on cost and references. Contract drafting initiated with an urgent Friday deadline, pending legal review clarification.",
+  "key_topics": [
+    {
+      "topic": "Cloud migration vendor selection",
+      "summary": "Vendor B selected over alternatives due to 20% cost advantage and stronger references.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Proceed with Vendor B for cloud migration",
+      "context": "20% cheaper than alternatives with better references",
+      "made_by": "Team"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Draft the contract with Vendor B",
+      "owner": "Mike",
+      "deadline": "Friday",
+      "priority": "high",
+      "context": "Urgent — migration needs to start next month",
+      "source_quote": "Mike, I need you to draft the contract by Friday — this is urgent, we need to get started next month."
+    },
+    {
+      "task": "Check if legal review is required for contracts over $100K",
+      "owner": "Sarah",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Uncertainty about company policy on large contracts",
+      "source_quote": "Oh and Sarah, can you check if we need legal review for contracts over 100K?"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Do we need to hire a dedicated DevOps person for the migration?",
+      "raised_by": "Not specified",
+      "context": "Resource planning for the cloud migration project"
+    }
+  ],
+  "attendees_mentioned": ["Mike", "Sarah", "Meeting Leader"],
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "Review contract draft next Wednesday"
+}
+
+---
+
+Now analyze this transcript:
+
+{transcript}
