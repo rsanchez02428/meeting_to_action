@@ -16,6 +16,7 @@ import os
 import json
 from anthropic import Anthropic
 from dotenv import load_dotenv
+from src.extractor import parse_llm_json, load_prompt
 
 load_dotenv()
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -31,63 +32,11 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
     You never trust a single LLm call for important output.
     Always verify.
     """
-    verification_prompt = f"""You are a meticulous quality assurance reviewer 
-    for meeting notes. 
-    Your job is to compare extracted meeting data against the original 
-    transcript and find any errors, omissions, or hallucinations.
-
-    ORIGINAL TRANSCRIPT:
-    {transcript}
-
-    EXTRACTED DATA:
-    {json.dumps(extracted_data, indent=2)}
-
-    Perform the following checks and return a JSON object:
-
-    {{ 
-      "verification_status": "pass" or "needs_correction",
-      
-      "accuracy_checks": [ 
-      {{
-        "field: "which field you checked",
-        "status": "correct" or "incorrect" or "missing",
-        "issue": "description of the problem (if any)",
-        "correction": "what it should be (if incorrect)" 
-      
-      }}
-      ],
-          
-      "missed_items": [ 
-        {{ 
-        "type": "action_item" or "decision" or "open_question",
-        "content": "the item that was missed",
-        "evidence": "quote from transcript that proves it"
-        }}
-      ],
-
-      "hallucination_flags": [ 
-        {{
-          "field: "which extracted item is hallucinated",
-          "reason": "why this wasn't actually in the transcript"
-        }}
-      ],
-
-      "corrected_data": {{ 
-        // The full corrected version of the extracted data
-        // Include ALL fields, even unchanged ones
-        // Apply all corrections and add missed items 
-      }}
-    }}
-
-    CHECK RULES:
-    1. Every action item must have direct evidence in the transcript. 
-       If you can't find the evidence, flag it as a hallucination.
-    2. Every owner name must appear in the transcript. 
-    3. Every decision must be explicitly stated or clearly agreed upon. 
-    4. Check if any commitment or assignment were missed by the extraction. 
-    5. Verify the summary doesn't overstate or misrepresent what was discussed. 
-
-    Respond with ONLY the JSON object."""
+    verification_prompt = (
+        load_prompt("verification_v2.txt")
+        .replace("{TRANSCRIPT}", transcript)
+        .replace("{EXTRACTED_JSON}", json.dumps(extracted_data, indent=2))
+    )
 
     response = client.messages.create( 
         model="claude-sonnet-4-20250514",
@@ -101,8 +50,6 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
 
     raw_text = response.content[0].text
 
-    # Reuse our robust JSON parser from extractor.py 
-    from src.extractor import parse_llm_json
     verification_result = parse_llm_json(raw_text)
 
     return verification_result
@@ -142,9 +89,9 @@ def apply_corrections(original: dict, verification:dict) -> dict:
 # === TEST IT ===   # In the terminal, run: python -m src.verifier. This is due to src.extracor being imported. If we just run python src/verifier.py, it won't work because of the import statement. By running it as a module, we ensure the imports work correctly.
 if __name__ == "__main__":
     # Load the transcript and extraction from the previous phases
-    with open("outputs/transcript_2.json", "r") as f:
+    with open("outputs/transcripts/transcript.json", "r") as f:
         transcript_data = json.load(f)
-    with open("outputs/extraction_2.json", "r") as f:
+    with open("outputs/extractions/extraction_v2.json", "r") as f:
         extraction_data = json.load(f)
     
     print("Verifying extraction...")
@@ -158,7 +105,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verified_extraction_2.json", "w") as f:
+    with open("outputs/verifications/verified_extraction_v2.json", "w") as f:
         json.dump(final_data, f, indent=2)
     
-    print("\nFinal verified data saved to outputs/verified_extraction_2.json")
+    print("\nFinal verified data saved to outputs/verifications/verified_extraction_v2.json")
