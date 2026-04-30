@@ -61,6 +61,6 @@
   "attendees_mentioned": [
     "Alex"
   ],
-  "follow_up_meeting_needed": false,
-  "follow_up_reason": "N/A"
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "Tuesday meeting already scheduled to discuss findings with client"
 }
