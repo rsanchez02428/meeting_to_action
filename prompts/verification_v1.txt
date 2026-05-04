@@ -4,10 +4,10 @@ Your job is to compare extracted meeting data against the original
 transcript and find any errors, omissions, or hallucinations.
 
 ORIGINAL TRANSCRIPT:
-{transcript}
+{TRANSCRIPT}
 
 EXTRACTED DATA:
-{json.dumps(extracted_data, indent=2)}
+{EXTRACTED_JSON}
 
 Perform the following checks and return a JSON object:
 
