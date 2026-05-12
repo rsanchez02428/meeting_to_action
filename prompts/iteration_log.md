@@ -66,56 +66,58 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
-  - Topics: 4/4
-  - Decisions: 3/4 — Missed decision to have teams share scanners until replacement and repairs occur.
-  - Actions: 9/12 — Missed action items to prioritize eight SKUs with highest movement for cycle count, to pull two team members after lunch for targeted cycle count, and to put a mandatory stage and verification check in place before dispatch confirmation.
-  - Open questions: 1/1
+  - Topics discussed:
+  - Decisions made:
+  - Action items:
+  - Open questions:
 - **Errors**
-  - `action_items`: For "notify dispatch about potential staging delays", correct owner is Meeting Leader, not Carlos.
-  - `action_items`: For "Push IT to expedite remaining scanner repairs", deadline says "Tomorrow afternoon" but should say "Not specified". Task was said to be completed soon.
-  - `action_items`: Brief floor team deadline listed as "10:30 AM" but transcript says "1030".
+- **Notes**
 
 ---
 
 #### Extraction v2
 
 - **Results**
-  - Topics: 4/4
-  - Decisions: 5/5 — Sub-tasks dissected into separate items. All captured, including previously missed decision to have teams share scanners.
-  - Actions: 13/13 — All previously missed action items captured. Extra item (vs. v1's 12) is from sub-task extraction.
-  - Open questions: 1/1
+- **Errors**
+- **Notes**
 
 ---
 
 #### Extraction v3
 
 - **Results**
-  - Topics: 4/4
-  - Decisions: 5/5
-  - Actions: 12/12
-  - Open questions: 1/1
+- **Errors**
 - **Notes**
-  - Action item "pull two team members after lunch for cycle count" is included in the context of action item "Run targeted cycle count on affected SKUs". Considered correct to eliminate duplication.
 
 ---
 
 #### Verification v1 on Extraction v1
 
 - **Results**
-  - Did not capture missed decision to have scanners shared by teams.
-  - Missed action item "putting a mandatory stage and verification check in place before dispatch confirmation" (Owner: Carlos, Deadline: today, Priority: high).
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
 - **Errors**
-  - `action_items`: "Notify dispatch about potential staging delays" — owner marked as Carlos, should be Meeting Leader.
-  - `action_items`: "Push IT to expedite remaining scanner repairs" — correct in extraction but removed due to belief the task was already underway.
+- **Notes**
+
+---
+
+#### Verification v2 on Extraction v2
+
+- **Results**
+- **Corrections**
+- **Errors**
+- **Notes**
 
 ---
 
 #### Verification v3 on Extraction v3
 
-- **Results** — *Pending*
-- **Corrections** — *Pending*
-- **Errors** — *Pending*
-- **Notes** — *Pending*
+- **Results**
+- **Corrections**
+- **Errors**
+- **Notes**
 
 ---
 
@@ -124,65 +126,72 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
-  - Topics: 4/4 (shows 3 due to ungranular prompt)
-  - Decisions: 3/3
-  - Actions: 5/5 (shows 4 due to ungranular prompt)
-  - Open questions: 0/0
+  - Topics discussed:
+  - Decisions made:
+  - Action items:
+  - Open questions:
 - **Errors**
-  - Does not include meeting leader in `attendees_mentioned`.
+- **Notes**
 
 ---
 
 #### Extraction v2
 
 - **Results**
-  - Topics: 4/4
-  - Decisions: 3/3
-  - Actions: 5/5
-  - Open questions: 0/0
+  - Topics discussed:
+  - Decisions made:
+  - Action items:
+  - Open questions:
+- **Errors**
+- **Notes**
+
+---
+
+#### Extraction v3
+
+- **Results**
+  - Topics discussed:
+  - Decisions made:
+  - Action items:
+  - Open questions:
+- **Errors**
+- **Notes**
 
 ---
 
 #### Verification v1 on Extraction v1
 
 - **Results**
-  - Accuracy checks: 3
-  - Missed items: 0
-  - Hallucinations: 1
-- **Errors**
   - Accuracy checks:
-    - Due to the "other speaker" declining to have Alex draft the cover email, it was marked as a false action item.
-    - The meeting with the client was marked as a follow-up meeting. Requires proper definition of what constitutes a follow-up meeting.
+  - Missed items:
   - Hallucinations:
-    - The task to draft the cover email by the "other speaker" was marked as a hallucination due to the rejection of Alex completing the task. May reflect unrecognized human intent behind the rejection.
+- **Corrections**
+- **Errors**
 - **Notes**
-  - Hallucination and accuracy checks stem from "Meeting leader" not being mentioned in the transcript. Verifier expects unnamed speakers to be referenced as "other speaker".
 
 ---
 
 #### Verification v2 on Extraction v2
 
 - **Results**
-  - Accuracy checks: 1
-  - Missed items: 1
-  - Hallucinations: 0
-- **Correct**
-  - Accuracy check corrections: 1
-    - `key_topics`: Topic says "Usage renewal chart concerns" but transcript refers to "usage renewal" as a slide, not specifically a chart.
-  - Missed item corrections: 1
-    - `open_question`: Root cause of support ticket increase — whether it's tied to onboarding changes. A decision was made on how to move forward but the question itself was never answered.
-
----
-
-#### Extraction v3
-
-- *Pending*
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
+- **Errors**
+- **Notes**
 
 ---
 
 #### Verification v3 on Extraction v3
 
-- *Pending*
+- **Results**
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
+- **Errors**
+- **Notes**
 
 ---
 
@@ -191,79 +200,60 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
-  - Topics: 3/3
-  - Decisions: 2/2
-  - Actions: 3/4
-  - Open questions: 0/0
 - **Errors**
-  - Missed action item: send revised email to other participant when completed.
-  - For action items "Update internal summary language..." and "Send email to Redwood...", owner was set to "First speaker" (meeting leader) rather than "Second speaker". Second speaker was not mentioned by name.
-  - For action item "Forward updated version to finance...", owner was set to "Second speaker" when it should be "First speaker" (meeting leader).
+- **Notes**
 
 ---
 
 #### Extraction v2
 
 - **Results**
-  - Topics: 3/3
-  - Decisions: 3/3 (1 more than v1 due to v2's granularity)
-  - Actions: 4/4
-  - Open questions: 1/0
 - **Errors**
-  - The open question captured was answered within the meeting; should be null.
 - **Notes**
-  - Action item owners are, similar to extraction v1, swapped (e.g., action item 1's owner should be "Unnamed participant 2", not 1).
-  - For action item "Forward updated version to finance...", not specific on what is being discussed (what needs to be updated?).
-  - For action item "Send revised summary...", not specific to whom the revised summary is meant to be sent.
-  - When extracting unnamed participants, the order of identification is not orderly.
-  - The first person who speaks should be identified as "Unnamed participant 1".
-  - `key_topic` "Implement coordination requirements" in extraction v2 is the same as "internal summary revision" and "Ops team involvement timing" in extraction v1. v2 simply provides a broader summary.
+
+---
+
+#### Extraction v3
+
+- **Results**
+- **Errors**
+- **Notes**
 
 ---
 
 #### Verification v1 on Extraction v1
 
 - **Results**
-  - Accuracy checks: 4
-  - Missed items: 0
-  - Hallucinations: 0
-- **Correct**
-  - Accuracy check corrections: 4
-    - `action_item`: Task says "First speaker" will update summary, but transcript shows second speaker will do it.
-    - `action_item`: Task says "First speaker" will send email, but transcript shows second speaker will do it.
-    - `action_item`: Task says "Second speaker" will forward to finance, but transcript shows first speaker will do it.
-    - `action_item`: Transcript specifies "next hour" as deadline.
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
 - **Errors**
-  - Did not capture missed action item to send revised email to other participant when completed.
+- **Notes**
 
 ---
 
 #### Verification v2 on Extraction v2
 
 - **Results**
-  - Accuracy checks: 2
-  - Missed items: 0
-  - Hallucinations: 0
-- **Correct**
-  - Accurately corrected the open question to null after extractor v2 extracted a question that was answered within the meeting.
-  - Accurately corrected the owner of action item "Send email to Redwood..." from "Unnamed participant 1" to "Unnamed participant 2".
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
 - **Errors**
-  - Did not correct owners of action items "Update internal summary..." and "Send revised summary when completed" to "Unnamed participant 2".
-  - Did not correct owner of action item "Forward updated version to finance..." to "Unnamed participant 1".
 - **Notes**
-  - Need to identify participants.
-
----
-
-#### Extraction v3
-
-- *Pending*
 
 ---
 
 #### Verification v3 on Extraction v3
 
-- *Pending*
+- **Results**
+  - Accuracy checks:
+  - Missed items:
+  - Hallucinations:
+- **Corrections**
+- **Errors**
+- **Notes**
 
 ---
 
