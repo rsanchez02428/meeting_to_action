@@ -15,7 +15,7 @@
   "decisions": [
     {
       "decision": "Require a final verification before an order is marked staged",
-      "made_by": "Both"
+      "made_by": "Participant 1"
     }
     {
       "decision": "Have scanning teams share devices until repairs and replacements of scanners are complete",
@@ -23,34 +23,24 @@
     }
     {
       "decision": "Re-slot overflow inventory out of zones B and C",
-      "made_by": ""
+      "made_by": "Participant 1"
     }
     {
       "decision": "Setting up a pick only lane during peak hours",
-      "made_by": ""
-    }
-    {
-      "decision": "Putting a mandatory staging verification check in place before dispatch confirmation",
-      "made_by": ""
+      "made_by": "Participant 1"
     }
     {
       "decision": "Have temp workers retrained befroe they return to independent picking",
-      "made_by": ""
+      "made_by": "Participant 1"
     }
     {
-      "decision": "Priortitize the eight SKUs and teh highest movement for cycle count",
-      "made_by": ""
-    }
-     {
       "decision": "Use next seven days to measure impact of the changes made today",
       "made_by": "Participant 1"
     }
      {
       "decision": "Meet again Friday at 2pm to review numbers and make final decision",
-      "made_by": "Participany 1"
+      "made_by": "Both"
     }
-
-
   ],
   
   "action_items": [
@@ -63,7 +53,7 @@
     {
       "task": "Make one lane pick only during peak hours",
       "owner": "Carlos",
-      "deadline": "Not specified",
+      "deadline": "Today",
       "priority": "medium",
     }
     {
@@ -73,20 +63,8 @@
       "priority": "medium",
     }
     {
-      "task": "Have temp workers retrained before they returm to independent picking",
-      "owner": "Carlos",
-      "deadline": "Not specified",
-      "priority": "medium",
-    }
-    {
       "task": "Brief floor team ",
       "owner": Carlos,
-      "deadline": "10:30",
-      "priority": "medium",
-    }
-    {
-      "task": "Start moving overflow stock by 10:30",
-      "owner": "Carlos",
       "deadline": "10:30",
       "priority": "medium",
     }
@@ -139,7 +117,7 @@
   "open_questions": [
     {
       "question": "Are these warehouse issues temporary because of the seasonal overflow and equipment trouble or are they signs that current layout no longer supports the volume?",
-      "raised_by": "",
+      "raised_by": "Participant 1",
       "context": ""
     }
   ],
@@ -180,11 +158,11 @@
     }
     {
       "decision": "Send dashboard today to client",
-      "made_by": "Alex"
+      "made_by": "Both"
     }
     {
       "decision": "Leave out benchmark comparison",
-      "made_by": "Alex"
+      "made_by": "Both"
     }
     {
       "decision": "For the support ticket increase, acknowledge it in the deck but don't over commit. Talk throught with client in meeting.",
@@ -275,15 +253,15 @@
       "made_by": ""
     }
     {
-      "decision": "Select vendor for it can be live next quarter",
-      "made_by": "Both"
-    }
-    {
-      "decision": "Do not involve ops in the kickoff meeting today",
+      "decision": "Do not involve ops in the meeting today",
       "made_by": "Both"
     }
     {
       "decision": "Involve ops at kickoff",
+      "made_by": "Both"
+    }
+    {
+      "decision": "Move foward with Redwood vendor pending support clarification",
       "made_by": "Both"
     }
   ],
@@ -304,6 +282,12 @@
     {
       "task": "Foward updated version to finance",
       "owner": "Participant 1",
+      "deadline": "",
+      "priority": "",
+    }
+    {
+      "task": "Send revised summary to Participant 1",
+      "owner": "Participant 2",
       "deadline": "",
       "priority": "",
     }
