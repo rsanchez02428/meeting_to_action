@@ -1,0 +1,73 @@
+{
+  "meeting_summary": "Team discussed finalizing a dashboard update for client delivery before the weekend. They reviewed remaining issues with data presentation and agreed on final revisions to be completed and sent today.",
+  "key_topics": [
+    {
+      "topic": "Dashboard update review",
+      "summary": "Overall dashboard is in good shape with clean numbers and improved formatting, but needs better framing for March usage dip and clearer summary slide wording.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Support ticket increase analysis",
+      "summary": "Discussed whether to include speculation about onboarding changes causing support ticket increase or leave explanation for Tuesday meeting discussion.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Benchmark comparison",
+      "summary": "Decided to leave out the benchmark comparison chart that was previously discussed, as it wouldn't change the recommendation.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Send dashboard update to client today rather than waiting until Monday",
+      "context": "Holding it longer wouldn't add much value and client needs time to review before Tuesday meeting",
+      "made_by": "Team consensus"
+    },
+    {
+      "decision": "Leave out benchmark comparison chart",
+      "context": "Would not change the recommendation and adding it now would feel like unnecessary additions",
+      "made_by": "Team consensus"
+    },
+    {
+      "decision": "Acknowledge support ticket increase without over-committing on the cause",
+      "context": "Not confident enough in the onboarding connection to state it definitively in the deck",
+      "made_by": "Team consensus"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Tighten wording on the trend slide and rewrite summary bullets",
+      "owner": "Alex",
+      "deadline": "This morning",
+      "priority": "medium",
+      "context": "Need to improve framing of March dip and make summary bullets more specific"
+    },
+    {
+      "task": "Send revised dashboard back for review",
+      "owner": "Alex",
+      "deadline": "Around noon",
+      "priority": "medium",
+      "context": "Final review needed before sending to client"
+    },
+    {
+      "task": "Give final read and send dashboard to client",
+      "owner": "Other speaker",
+      "deadline": "This afternoon",
+      "priority": "medium",
+      "context": "Final review and client delivery before weekend"
+    },
+    {
+      "task": "Draft and send cover email to client",
+      "owner": "Other speaker",
+      "deadline": "This afternoon",
+      "priority": "medium",
+      "context": "Will adjust tone based on any earlier client replies"
+    }
+  ],
+  "open_questions": [],
+  "attendees_mentioned": [
+    "Alex"
+  ],
+  "follow_up_meeting_needed": false,
+  "follow_up_reason": "N/A"
+}

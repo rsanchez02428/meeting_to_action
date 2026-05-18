@@ -66,12 +66,29 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
-  - Topics discussed:
-  - Decisions made:
-  - Action items:
-  - Open questions:
+  - Topics discussed: 4
+  - Decisions made: 3
+  - Action items: 9
+  - Open questions: 1
 - **Errors**
+  - Missed:
+    - Decisions:
+      - Have scanning teams share devices until replacements and repairs come.
+      - To use the next seven days to measure impact of changes.
+    - Action Items:
+      - To pull two team members after lunch for targeted cycle count.
+  - Accuracy:
+    - Action Items:
+      - "Notify dispatch about potential staging delays" should be assigned to Participant 1.
+      - "Brief floor team..." should have a deadline of 10:30, not 10:30 AM.
+  - Hallucinations:
+    - N/A
 - **Notes**
+  - The v1 output merged multiple action items into a single action item.
+  - Some repitions in action items.
+  - In sample, both speakers attributed "Notify dispatch about potential staging delays" to themselves. In recap of assigments, leader assigns assignment to themselves. Proritize recap and identify leader tonage.
+  - Model does not capture acceptances or fallback plans as decisions. Reason for miss of "teams will have to share devices...Fine."
+  - Prompt does not say anything about preserving exact wording. Reason for "1030" -> "10:30 AM".
 
 ---
 
@@ -126,12 +143,24 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
-  - Topics discussed:
-  - Decisions made:
-  - Action items:
-  - Open questions:
+  - Topics discussed: 3
+  - Decisions made: 3
+  - Action items: 4
+  - Open questions: 0
 - **Errors**
+  - Missed:
+    - Decisions:
+      - Reframe usuage renewal slide to better explain March dip.
+      - Update summary slide to say engagment was up, rentention was flat, and support sticked.
+    - Action Items:
+      - N/A
+  - Accuracy:
+    - N/A
+  - Halluciniations:
+    - N/A
 - **Notes**
+  - The v1 output merged "tighten wording on the trend slide" and "rewrite the summary bullets" into a single action item.
+  - The v1 prompt's definition of "decision" is limited to big directional choices, and these feel more like editorial agreements. The model read them as just conversation about what to fix rather than decisions that were made. The prompt has no guidance for recognizing that mutual agreement on a specific change counts as a decision even when it's small.
 
 ---
 
@@ -200,8 +229,24 @@ No changes. Baseline prompt.
 #### Extraction v1
 
 - **Results**
+  - Topics discussed: 3
+  - Decisions made: 2
+  - Action items: 4
+  - Open questions: 0
 - **Errors**
+  - Missed:
+    - Decisions:
+      - Have internal summary say implemenatation rollout needs coordination from IT and Ops during first two weeks.
+      - It was decided that the budget number was good.
+    - Action Items:
+      - N/A
+  - Accuracy:
+    - N/A
+  - Halluciniations:
+    - N/A
 - **Notes**
+  - "Have internal summary say implementation rollout needs coordination from IT and Ops during first two weeks" — The model categorized this as an action item (update internal summary language) rather than also recognizing it as a decision. The transcript shows a proposal ("I think we should just say it needs coordination from IT and OPS during the first two weeks") followed by explicit agreement ("Agreed"). That's a decision about what the document should say, not just a task to edit it. The v1 prompt has no guidance that an agreed-upon content change counts as a decision, and its example only shows high-level strategic decisions, so the model filed this under "summary revision" and moved on.
+  - "Budget number is good" — This is a confirmation decision, not a directional one. One speaker asks "Are you still good with the budget number?" and the other confirms it's under the cap they discussed. The v1 prompt's example and framing orient the model toward decisions that change something ("go with Vendor B"), not decisions that affirm the status quo. 
 
 ---
 
