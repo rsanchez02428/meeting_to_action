@@ -1,0 +1,66 @@
+{
+  "meeting_summary": "Discussion about moving forward with Redwood vendor proposal, with agreement to proceed pending clarification on support response times and minor summary revisions. Decision made to involve ops team later in the process rather than immediately.",
+  "key_topics": [
+    {
+      "topic": "Redwood vendor proposal evaluation",
+      "summary": "Overall positive assessment of Redwood's proposal with solid pricing and timeline, but concerns about vague support response time commitments.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Internal summary revision",
+      "summary": "Need to update language about implementation risks to be more realistic about coordination requirements from IT and OPS teams.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Ops team involvement timing",
+      "summary": "Decided to bring ops team into kickoff meeting after contract signing rather than during initial discussions to reduce complexity.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Proceed with Redwood vendor proposal pending support clarification",
+      "context": "Redwood was the best of three vendors evaluated, with reasonable pricing and timeline",
+      "made_by": "Both participants"
+    },
+    {
+      "decision": "Bring ops team in at kickoff meeting rather than immediately",
+      "context": "To reduce moving parts and opinions before contract is finalized",
+      "made_by": "Both participants"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Update internal summary language to be more realistic about implementation risk",
+      "owner": "Second speaker",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Current summary is too polite about implementation risk and coordination needs"
+    },
+    {
+      "task": "Send email to Redwood to clarify support response times",
+      "owner": "Second speaker",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Current proposal language about 'priority response' is too vague"
+    },
+    {
+      "task": "Forward updated version to finance once summary is revised",
+      "owner": "First speaker",
+      "deadline": "After summary update is complete",
+      "priority": "medium",
+      "context": "Need finance approval before proceeding with vendor"
+    },
+    {
+      "task": "Send revised summary when completed",
+      "owner": "Second speaker",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "First speaker needs updated version to forward to finance"
+    }
+  ],
+  "open_questions": [],
+  "attendees_mentioned": [],
+  "follow_up_meeting_needed": false,
+  "follow_up_reason": "Not applicable"
+}
