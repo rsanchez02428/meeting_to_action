@@ -10,9 +10,33 @@
 
 No changes. Baseline prompt.
 
+- Role prompting: Assigns persona of an expert executive assistant specialized in structured extraction from meeting transcripts.
+
+- Task framing: Direct instruction to analyze a transcript and extract structured information.
+
+- Input handling: Raw meeting transcript inserted via {transcript} placeholder (variable substitution).
+
+- Output constraint: Strictly JSON only — no markdown, no explanation, no code fences
+
+- Output schema: Predefined JSON structure with seven fields:
+  - meeting_summary — 2–3 sentence executive summary of discussion and outcomes
+  - key_topics — Topic name, 1–2 sentence summary, approximate time range
+  - decisions — What was decided, context, who made or announced it
+  - action_items — Task description, owner, deadline, priority (high/medium/low), context
+  - open_questions — Unresolved questions, who raised them, why they matter
+  - attendees_mentioned — List of names mentioned in the transcript
+  - follow_up_meeting_needed — Boolean with reason if applicable
+
+- Guardrails: Eight explicit rules constraining extraction behavior:
+  - Grounding rule: only extract explicitly stated or strongly implied information
+  - Anti-hallucination rule: do not invent, assume, or hallucinate
+  - Classification rules: "I'll do X" → action item; "Can someone look into X?" → unassigned action item; "We should do X" → open question
+  - Formatting rule: preserve deadline wording as-is, no date calculation
+  - Priority heuristic: "high" for urgent/ASAP/critical/blocker, "medium" as default, "low" for nice-to-haves
+
+- Few-shot example: One input-output pair (vendor selection scenario) demonstrating the full expected extraction format
+
 #### v2
-
-
 
 ---
 
@@ -22,25 +46,31 @@ No changes. Baseline prompt.
 
 No changes. Baseline prompt.
 
+- Role prompting: Assigns persona of a meticulous quality assurance reviewer for meeting notes
+
+- Task framing: Compare extracted data against original transcript and identify errors, omissions, or hallucinations
+
+- Input handling: Two variable substitutions — original transcript via {TRANSCRIPT} and extracted output via {EXTRACTED_JSON}
+
+- Output constraint: Strictly JSON only
+
+- Output schema: Predefined JSON structure with five fields:
+  - verification_status — "pass" or "needs_correction"
+  - accuracy_checks — Field-level status (correct/incorrect/missing), issue description, correction
+  - missed_items — Type (action_item/decision/open_question), content, supporting transcript quote
+  - hallucination_flags — Which extracted item is unsupported, reason why
+  - corrected_data — Full corrected version of the extraction with all fields
+
+- Guardrails: Five check rules constraining verification behavior:
+  - Evidence rule: every action item must have direct transcript evidence
+  - Name grounding rule: every owner name must appear in the transcript
+  - Decision grounding rule: every decision must be explicitly stated or clearly agreed upon
+  - Completeness rule: check for missed commitments or assignments
+  - Accuracy rule: verify summary does not overstate or misrepresent discussion
+
+- Few-shot example: None (zero-shot)
+
 #### v2
-
-- **Replaced Python Placeholders** — Swapped `{json.dumps(extracted_data, indent=2)}` for clean `{TRANSCRIPT}` and `{EXTRACTED_JSON}` placeholders so the model isn't guessing at what's prompt versus data.
-- **Five-Phase Methodology** — Added a structured walkthrough the verifier must follow: enumerate commitment markers, identify the recap, list decisions, list open questions, then compare. Converts an open-ended judgment task into a checklist and forces the verifier to use a different method than the extractor so blind spots don't propagate.
-- **Owner Attribution Checks** — Added the same speaker-attribution rules used in the extractor, including the guardrail against defaulting to the named person when the unnamed speaker actually committed.
-- **Deadline Checks** — Added two specific checks: verbatim preservation and the rule that deadlines must be tied to the action itself rather than pulled from background timing facts.
-- **Narrow Hallucination Criterion** — Tightened the definition so items aren't removed just because work seems underway, redundant, or only loosely paraphrased. Added the principle that removing valid items is as harmful as adding invented ones.
-- **Granularity Check** — Added instruction to verify each step of a multi-step commitment is captured separately, with examples of commonly missed sub-types (resourcing, scoping, deliverable, process-implementation).
-- **New Phase-Output Fields** — Added `phase_1_commitments_found`, `phase_2_recap_items`, and `phase_3_decisions_found` so the verifier externalizes its scan. Gives you a debuggable artifact to inspect before looking at the final comparison.
-- **New Traceability Fields** — Added `item_index` and `evidence` to accuracy checks, and `phase_detected_in` to missed items, so each finding can be traced back to a specific extracted item, transcript quote, and methodology phase.
-
-#### v3
-
-- **New Phase 0 — Verify Participant Identification** — Inserted before all other phases. Checks speaker ordering, name upgrades, name direction (who is addressing whom), role accuracy, speaker count, and first utterances. Catches identity errors before they cascade into owner attribution.
-- **Speaker references updated throughout** — Phases 1 and 2 now use "name or Participant N label" instead of the old generic "name or role label" to match the extractor's convention.
-- **Owner Attribution Checks rewritten** — Rules now reference the Participant N system and include a new consistency rule: every label used in `owner`, `made_by`, or `raised_by` must appear in the `participants` array.
-- **New `phase_0_participant_check` in output** — Captures the verifier's assessment of each identified participant — ordering, name upgrade, role, and first utterance — with issue descriptions for anything wrong.
-- **New `label_consistency_check` in output** — A dedicated block confirming all labels used across attribution fields exist in the `participants` array, with specific inconsistencies listed if any are found.
-- **`corrected_data` note updated** — If participant identification was wrong, corrections must fix the `participants` array and propagate the fix to every attribution field throughout the output.
 
 ---
 
