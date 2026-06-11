@@ -38,6 +38,38 @@ No changes. Baseline prompt.
 
 #### v2
 
+- **Role prompting reinforced** — Expanded the system persona to include ownership attribution accuracy and granularity, priming the model's behavior across all three failure modes observed in v1 (missed items, wrong owners, over-consolidation).
+
+- **Recall-over-precision reframing** — Shifted the task instruction from "thorough but precise" to "exhaustive," explicitly biasing the model toward higher recall on action items at the acceptable cost of slight over-extraction.
+
+- **Multi-step chain-of-thought for speaker diarization** — Added a four-step reasoning procedure the model must execute before extraction: detect turn boundaries, assign sequential participant labels, upgrade labels on named-entity resolution, and note inferred roles. Forces intermediate reasoning about speaker identity rather than relying on implicit inference.
+
+- **Named-entity resolution rule** — When a name surfaces in the transcript as an address term (e.g., "Thanks, Carlos"), the model must propagate that name retroactively and forward across all label references — a consistency constraint on entity linking.
+
+- **Structured output schema change (`participants`)** — Replaced the flat `attendees_mentioned` string array with a structured object array containing label, inferred role, and first utterance, giving the downstream verifier a speaker map to validate against.
+
+- **Cross-field consistency constraint** — All attribution fields (`owner`, `made_by`, `raised_by`) now reference the same labeling system (name, Participant N, or Unassigned), eliminating label drift across output fields.
+
+- **Hierarchical context grounding (Recap Rule)** — Introduced a precedence rule: when an explicit recap section exists in the transcript, its content is authoritative for owner, scope, and deadline. This gives the model a grounding hierarchy instead of treating all transcript segments equally.
+
+- **Task decomposition instruction** — Added an explicit atomicity rule for action items with a worked few-shot example showing one spoken commitment decomposed into four independently checkable tasks. Establishes granularity expectations the single v1 example did not.
+
+- **Classification boundary expansion (Decisions)** — Widened the decision taxonomy from implicit (only proactive choices demonstrated in the example) to explicit with five sub-types: active choices, constraint acceptances, process changes, postponements, and exclusions. Reduces under-classification caused by narrow few-shot anchoring.
+
+- **Token-level fidelity constraint (Deadlines)** — Added a verbatim preservation rule for deadlines, preventing the model from normalizing or adding specificity (e.g., appending "AM"). Also introduced a grounding distinction: only timing language explicitly tied to an action verb counts as a deadline, not background temporal facts.
+
+- **Commitment-language pattern matching expanded** — Added three new trigger patterns ("Alex, you'll do X," "We need to do X" + acceptance, intent despite in-progress work) to the classification rules that distinguish action items from open questions, broadening the model's extraction coverage.
+
+- **Semantic similarity for priority classification** — Changed priority matching from exact keyword matching to "words or tone SIMILAR TO," allowing the model to use semantic proximity rather than string matching. Added "today," "immediately," and "starting now" as high-priority triggers.
+
+- **Source-grounding field (`source_quote`)** — Each action item now requires the exact transcript phrase that establishes the commitment. Functions as an inline retrieval citation, giving both the verifier and human reviewer a grounding anchor per item.
+
+- **Default value specification (`time_range`)** — Added an explicit fallback value ("N/A") to eliminate inconsistent handling of missing data across outputs.
+
+- **Default value specification (`raised_by`)** — Changed from an implicit no-output behavior to an explicit "Unclear" default, reducing ambiguity in how the model handles unattributable open questions.
+
+- **Few-shot example alignment** — Updated the single worked example to demonstrate the new labeling conventions (Participant 1 for unnamed speakers), the `source_quote` field, and the `participants` array, ensuring the example anchors the model on v2 behaviors rather than v1 patterns.
+
 ---
 
 ### Verification Prompts
@@ -71,6 +103,34 @@ No changes. Baseline prompt.
 - Few-shot example: None (zero-shot)
 
 #### v2
+
+- **Role prompting intensified** — Strengthened the persona from "find any" to "find every… including small ones" and added an explicit anti-pattern instruction ("You will NOT simply re-read and trust your second impression"), priming the model against confirmation bias toward the extractor's output.
+
+- **Forced chain-of-thought via six-phase methodology** — Replaced the open-ended "perform the following checks" with a mandatory six-phase sequential reasoning pipeline (verify participants → enumerate commitments → check recap → list decisions → list open questions → compare). This is a structured chain-of-thought that externalizes intermediate reasoning into inspectable output fields, preventing the verifier from sharing the extractor's attention pattern.
+
+- **Upstream validation gate (Phase 0)** — Inserted a participant-identification verification phase before any content checks. Validates speaker ordering, named-entity resolution direction, label upgrades, role inference, speaker count, and first utterances. Catches entity-linking errors at the source before they cascade into downstream attribution mistakes.
+
+- **Label convention alignment** — Updated all phase instructions to reference "name or Participant N label," synchronizing the verifier's entity-reference system with the extractor's, eliminating cross-prompt label mismatch.
+
+- **Cross-field schema validation (Owner Attribution)** — Rewrote attribution checks to enforce referential integrity: every label used in any attribution field must exist in the `participants` array. Functions as a foreign-key constraint across the structured output.
+
+- **Grounding checks for deadlines** — Added two verification rules: token-level fidelity (deadline wording must match the transcript verbatim) and grounding validity (the deadline must be tied to the action, not extracted from a background temporal fact).
+
+- **Hallucination guardrail recalibrated** — Narrowed the hallucination definition to require absence of commitment language, not just absence of a perfect quote. Explicitly prohibited removing items based on redundancy, overlap, or perceived in-progress status. Framed false negatives (removing valid items) as equally harmful to false positives (adding invented items), correcting a precision bias in v1.
+
+- **Granularity validation with sub-type taxonomy** — Added a decomposition check requiring the verifier to confirm each step of a multi-step commitment is captured individually. Provided a taxonomy of commonly missed sub-types (resourcing, scoping, deliverable, process-implementation) as a retrieval cue for the model's attention.
+
+- **Intermediate reasoning artifacts (Phase-Output Fields)** — Added `phase_1_commitments_found`, `phase_2_recap_items`, and `phase_3_decisions_found` to the output schema. These are chain-of-thought scratchpad fields that externalize the verifier's scan into structured, inspectable evidence before the final comparison phase.
+
+- **Per-item traceability fields** — Added `item_index` and `evidence` to accuracy checks and `phase_detected_in` to missed items. Creates an audit trail linking each verification finding to a specific extracted item, transcript quote, and methodology phase.
+
+- **New `phase_0_participant_check` output block** — Structured output capturing the verifier's per-participant assessment (ordering, name upgrade, role, first utterance) with issue descriptions, making the upstream validation gate's reasoning inspectable.
+
+- **New `label_consistency_check` output block** — A dedicated referential-integrity report confirming all labels across attribution fields resolve to entries in the `participants` array, with specific inconsistencies surfaced.
+
+- **New `item_content` field on hallucination flags** — Each flag now includes the content of the suspected item, making flags self-contained without requiring cross-reference to the extraction output.
+
+- **Correction propagation rule** — Updated the `corrected_data` instruction to require that participant-identification fixes propagate to every attribution field throughout the output, enforcing consistency in the corrected structured output.
 
 ---
 
