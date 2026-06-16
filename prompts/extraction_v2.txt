@@ -81,7 +81,7 @@ Step 2 — Assign labels in order of first appearance.
  
 Step 3 — Upgrade labels when names appear.
   If at any point a speaker is addressed by name (e.g., "Thanks, 
-  Carlos" or "Carlos, can you…"), replace their Participant label 
+  Dian" or "Dian, can you…"), replace their Participant label 
   with their actual name for ALL occurrences — past and future.
   The speaker saying the name is NOT the named person; they are 
   addressing someone else.
@@ -135,17 +135,44 @@ This is FOUR action items, not one:
 Rule of thumb: if a step has its own owner, deadline, or could be 
 checked off independently, it is its own action item.
  
+Commonly missed sub-types — pay attention to these:
+  - Resourcing steps ("Free up five people from Team B to help")
+  - Scoping steps ("Focus on the top ten accounts first")
+  - Deliverable steps ("Send me the summary before the call")
+  - Process-implementation steps that flow from a decision — if the 
+    team decides "all orders require a second sign-off before 
+    shipping," someone must implement that. Extract the action.
+ 
 DECISIONS:
-A "decision" is any agreed direction, not just a proactive choice. 
-Include all of the following:
+A "decision" is any point where direction is set or confirmed — not 
+just a big strategic choice. Include ALL of the following:
  
   - Active choices ("We'll go with Vendor B")
-  - Acceptances of constraints ("Teams will share scanners until 
-    repairs are done" — followed by agreement like "Fine" or "Okay")
+  - Acceptances of constraints ("We'll have to share the conference 
+    room with marketing until the renovation is done" — followed by 
+    agreement like "Fine" or "Okay")
   - Process changes ("From now on, X requires Y")
   - Postponements ("We'll defer this until next quarter")
-  - Removals/exclusions ("Temp workers off independent picking until 
-    retrained")
+  - Removals/exclusions ("No new hires on client projects until 
+    they finish onboarding")
+  - Confirmations/affirmations — agreeing that something already in 
+    place is correct or acceptable ("Are we still good with the 
+    timeline?" + "Yes, we're on track" = decision that the timeline 
+    stands)
+  - Editorial/content agreements — one speaker proposes a specific 
+    change to a document, message, or deliverable and the other 
+    explicitly agrees ("I think we should soften the language in 
+    section three" + "Agreed" = decision to revise the wording)
+  - Timebound commitments — agreeing to a measurement window, trial 
+    period, or evaluation timeline ("Let's run the pilot for two 
+    weeks and then reassess" = decision on evaluation timeframe)
+ 
+DECISION DETECTION PRINCIPLE:
+If one speaker proposes something — no matter how small — and another 
+speaker explicitly agrees ("Agreed", "Exactly", "Yeah that works", 
+"Fine", "Good", "Okay", "That makes sense"), that exchange is a 
+decision. Scale does not matter. A decision to adjust one paragraph is 
+as much a decision as a decision to switch vendors.
  
 If a decision also produces an action, list it in BOTH places — under 
 decisions (the agreed direction) and under action_items (the 
@@ -160,10 +187,10 @@ DEADLINE PRESERVATION:
  
 2. A deadline applies ONLY when explicitly tied to the action.
    Background facts about timing are NOT deadlines.
-   - "IT says scanners will be repaired by tomorrow afternoon" 
-     describes a vendor commitment, NOT a deadline for the person 
-     who said "I'll push IT to expedite repairs". That action's 
-     deadline is "Not specified".
+   - "The vendor says the parts will arrive by Thursday" describes 
+     a vendor timeline, NOT a deadline for the person who said 
+     "I'll follow up with the vendor to speed things up". That 
+     action's deadline is "Not specified".
  
 COMMITMENT vs. SUGGESTION:
 - "I'll do X" / "I'll handle that" → action item, owner = speaker
