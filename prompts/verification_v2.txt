@@ -24,13 +24,13 @@ identified every speaker. Check the following:
      the second distinct speaker should be Participant 2, and so on. 
      Confirm that numbering matches actual speaking order.
   2. NAME UPGRADES: If a speaker is addressed by name at any point 
-     in the transcript (e.g., "Thanks, Carlos"), confirm that the 
+     in the transcript (e.g., "Thanks, Dana"), confirm that the 
      extractor replaced the Participant label with the actual name 
      for ALL references — owner, made_by, raised_by, and the 
      participants array itself.
   3. NAME DIRECTION: Confirm the extractor did not assign the name 
-     to the wrong speaker. The person SAYING "Thanks, Carlos" is NOT 
-     Carlos — they are addressing Carlos. 
+     to the wrong speaker. The person SAYING "Thanks, Dana" is NOT 
+     Dana — they are addressing Dana. 
   4. ROLE ACCURACY: If a role is listed (e.g., "manager", "team 
      lead"), confirm there is evidence in the transcript supporting 
      it (directing others, setting deadlines, being deferred to).
@@ -46,7 +46,7 @@ Scan the transcript and list every instance of:
   - "We'll", "we will", "we need to" (when followed by acceptance)
   - "You'll", "you will" (assigning to another person)
   - "Let's", "we should" + agreement
-  - Imperative requests ("Pull two people", "Send me", "Run a…")
+  - Imperative requests ("Set up a meeting", "Send me", "Run a…")
   - Numbered recap items ("First…", "Second…", "Third…", "Fourth…")
  
 For each, note: the speaker (using their assigned name or Participant 
@@ -59,12 +59,30 @@ item in it. Treat the recap as authoritative for owner, scope, and
 deadline. Compare each recap item against the extracted action items.
  
 PHASE 3 — Identify all decisions.
-Scan for:
+A decision is any point where direction is set or confirmed. Scan 
+for ALL of the following types:
+ 
   - Active choices ("We'll go with X", "Starting today we will…")
   - Acceptances of constraints (a statement of how things will work, 
     followed by agreement: "Fine", "Agreed", "Understood", "OK")
   - Process changes, postponements, exclusions
-List each one with the supporting quote.
+  - Confirmations/affirmations — one speaker asks whether something 
+    is acceptable and the other confirms ("Are we good with X?" + 
+    "Yes" / "That's fine"). Affirming the status quo is a decision.
+  - Editorial/content agreements — one speaker proposes a specific 
+    change to a document, message, or deliverable and the other 
+    explicitly agrees ("I think we should say X" + "Agreed"). An 
+    agreed content change is a decision regardless of how small it is.
+  - Timebound commitments — agreeing on a measurement window, trial 
+    period, or evaluation timeline ("Let's give it two weeks and 
+    then reassess").
+ 
+To find decisions reliably, scan for agreement markers: "Agreed", 
+"Exactly", "Yeah that works", "Fine", "Good", "Okay", "That makes 
+sense", "That's fair", "Yeah, that feels right". If a proposal 
+precedes any of these markers, that exchange is a decision.
+ 
+List each decision with the supporting quote.
  
 PHASE 4 — Identify all open questions.
 Scan for unresolved questions, hedged commitments, and items 
@@ -89,20 +107,20 @@ For each action item, verify the owner using these rules:
      that name is the owner when the other speaker (Participant N) 
      actually committed.
   5. Confirm name upgrades are applied consistently. If a speaker 
-     was identified as "Carlos" in the participants array, they 
-     should be "Carlos" everywhere — not "Participant 2" in some 
-     places and "Carlos" in others.
+     was identified as "Dana" in the participants array, they 
+     should be "Dana" everywhere — not "Participant 2" in some 
+     places and "Dana" in others.
  
 DEADLINE CHECKS:
 For each deadline:
   1. Confirm the deadline is preserved VERBATIM from the transcript. 
-     Flag any normalization (e.g., "1030" rendered as "10:30 AM" 
-     when the transcript said "1030" without AM).
+     Flag any normalization (e.g., "945" rendered as "9:45 AM" 
+     when the transcript said "945" without AM).
   2. Confirm the deadline is actually tied to the action, not a 
-     background fact about timing. (Example: "scanners will be 
-     repaired by tomorrow afternoon" is a vendor commitment about 
-     scanners, not a deadline for the person who said "I'll push 
-     IT to expedite". Flag this as an incorrect deadline.)
+     background fact about timing. (Example: "The vendor says the 
+     parts will arrive by Thursday" is a vendor timeline, not a 
+     deadline for the person who said "I'll follow up with the 
+     vendor to speed things up". Flag this as an incorrect deadline.)
  
 HALLUCINATION CRITERION:
 An item is hallucinated ONLY if NO commitment language exists in 
@@ -115,16 +133,42 @@ the transcript to support it. Do NOT remove an action item because:
 When in doubt, KEEP the item and note the supporting evidence. 
 Removing valid items is as harmful as adding invented ones.
  
+ACCURACY CORRECTION RULE:
+When checking action item descriptions, evaluate whether the 
+MEANING is correct — not whether the exact words match the 
+transcript. If the extraction uses a more specific, actionable 
+description than the transcript's literal phrasing (e.g., "Schedule 
+and confirm the vendor call" instead of "take care of the vendor 
+call"), that is NOT an error. It is a useful paraphrase that adds clarity. Only flag a 
+description as incorrect if it changes the meaning of the 
+commitment — not if it uses different words to express the same 
+commitment. Never downgrade a specific description to a vaguer one 
+and call it a correction.
+ 
 GRANULARITY CHECK:
 For each multi-step commitment in the transcript, verify that EACH 
 step is captured as its own action item. Common missed sub-steps:
-  - Resourcing steps ("Pull two people after lunch")
-  - Scoping steps ("Prioritize the top eight SKUs")
-  - Deliverable steps ("Send me the variance report")
+  - Resourcing steps ("Free up two people from Team B to help")
+  - Scoping steps ("Focus on the top ten accounts first")
+  - Deliverable steps ("Send me the summary before the call")
   - Process-implementation steps that flow from a decision
  
 If a decision implies an executable action, that action must also 
 appear in action_items.
+ 
+DUAL-CATEGORY CHECK:
+After comparing decisions and action items, verify that items 
+appearing in one category also appear in the other when applicable:
+ 
+  - If a decision implies that someone must do something (implement 
+    a process, update a document, change a workflow), that executable 
+    step must ALSO appear in action_items with an owner and deadline.
+  - If an action item reflects an agreed direction (a proposal was 
+    made, someone agreed, and then someone took ownership), that 
+    agreed direction must ALSO appear in decisions.
+ 
+Do not assume that an item's presence in one category means it was 
+checked for the other. Verify both independently.
  
  
 OUTPUT:
@@ -166,7 +210,7 @@ Return a JSON object with this exact structure:
   "phase_3_decisions_found": [
     {
       "decision": "what was decided",
-      "type": "active_choice | acceptance | process_change | postponement | exclusion",
+      "type": "active_choice | acceptance | process_change | postponement | exclusion | confirmation | editorial_agreement | timebound_commitment",
       "supporting_quote": "exact quote"
     }
   ],
@@ -219,6 +263,8 @@ Return a JSON object with this exact structure:
     // If participant identification was wrong, correct the 
     // participants array AND propagate the fix to every owner, 
     // made_by, and raised_by field throughout
+    // If a decision also produces an action, ensure it appears in 
+    // BOTH decisions and action_items
   }
 }
  
