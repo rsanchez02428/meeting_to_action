@@ -2,7 +2,7 @@
 extractor.py - Extracts structured meeting data using Claude API.
 
 CONCEPT: This is where prompt engineeing becomes real engineering.
-I amd building a reliable system that:
+I am building a reliable system that:
 1. Loads a prompt template
 2. Injects the transcript
 3. Calls the Claude API
@@ -83,7 +83,7 @@ def extract_meeting_data(transcript: str, prompt_version: str = "extraction_v2.t
 
     # Call the Claude API
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=4000,
         temperature=0, 
         messages=[
@@ -205,7 +205,7 @@ def validate_extraction(data: dict) -> dict:
 # === TEST IT ===
 if __name__ == "__main__":
     # Load the transcript from Phase 2
-    transcript_path = "outputs/transcript.json"
+    transcript_path = "outputs/transcripts/transcript_1.json"
 
     if not Path(transcript_path).exists():
         # Use a sample transcript for testing
@@ -247,10 +247,10 @@ if __name__ == "__main__":
     print(json.dumps(result, indent=2))
 
     # Save for the next phase
-    with open("outputs/extraction_v2.json", "w") as f:
+    with open("outputs/extractions/sample_1/sample_1_extraction_v2.json", "w") as f:
         json.dump(result, f, indent=2)
 
-    print("\nSaved to outputs/extraction_v2.json")
+    print("\nSaved to outputs/extractions/sample_1/sample_1_extraction_v2.json")
     
     # Print a quick summary
     print(f"\n--- QUICK STATS ---")
