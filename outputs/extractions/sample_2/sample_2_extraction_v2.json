@@ -1,0 +1,149 @@
+{
+  "meeting_summary": "Alex and Participant 1 reviewed the status of a client dashboard update ahead of a Friday send. They agreed on specific wording fixes to the usage/renewal section and summary slide, confirmed the benchmark comparison would be left out, and aligned on a same-day delivery plan with a clear handoff workflow before the Tuesday client meeting.",
+  "key_topics": [
+    {
+      "topic": "Dashboard update overall status",
+      "summary": "The deck is in good shape overall — numbers are clean, formatting is improved, and the recommendation page reads better than it did two days ago.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Usage/renewal section framing",
+      "summary": "The March dip in the usage/renewal section was flagged as dropping bad news abruptly; agreed to add a note under the chart to explain what happened more directly rather than restructure the slide.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Summary slide bullet rewrite",
+      "summary": "The first bullet using the word 'mixed' was identified as vague and unhelpful; agreed to replace it with specific statements: engagement was up, retention was flat, and support tickets increased.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Send timing decision — today vs. Monday",
+      "summary": "Both speakers agreed to send the dashboard to the client today so they have time to review it before the Tuesday meeting, rather than waiting until Monday.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Benchmark comparison inclusion",
+      "summary": "Decided to leave out the benchmark comparison that had been discussed last week, as it would not change the recommendation and adding another chart at this stage felt unnecessary.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Support ticket increase framing in the deck",
+      "summary": "Agreed not to attribute the support ticket increase to onboarding changes in the deck since the cause is not confirmed; instead, acknowledge the increase without over-committing on the cause and discuss it in the Tuesday meeting.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Client email handling",
+      "summary": "Participant 1 declined Alex's offer to draft the client email, preferring to handle it personally so tone can be adjusted based on earlier correspondence.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Add a note under the usage/renewal chart to explain the March dip more directly, rather than restructuring the slide",
+      "context": "The current wording drops bad news abruptly and reads as evasive; better framing was preferred over a bigger change",
+      "made_by": "Alex"
+    },
+    {
+      "decision": "Rewrite the summary slide first bullet to say engagement was up, retention was flat, and support tickets increased — replacing the vague word 'mixed'",
+      "context": "'Mixed' was identified as a word that sounds calm but reveals nothing; specificity was preferred",
+      "made_by": "Participant 1"
+    },
+    {
+      "decision": "Send the dashboard to the client today, not wait until Monday",
+      "context": "Waiting would only create more time to over-edit; sending today gives the client time to review before the Tuesday meeting",
+      "made_by": "Participant 1"
+    },
+    {
+      "decision": "Leave the benchmark comparison out of the dashboard",
+      "context": "It would not change the recommendation and adding another chart at this stage felt like unnecessary padding",
+      "made_by": "Participant 1"
+    },
+    {
+      "decision": "Acknowledge the support ticket increase in the deck without attributing it to onboarding changes",
+      "context": "The link to onboarding is suspected but not confirmed enough to state it in writing; the cause will be discussed in the Tuesday meeting",
+      "made_by": "Participant 1"
+    },
+    {
+      "decision": "Participant 1 will handle the client email personally rather than having Alex draft it",
+      "context": "Participant 1 wants to adjust tone based on whether the client replied to earlier notes",
+      "made_by": "Participant 1"
+    },
+    {
+      "decision": "Alex will send the revised deck back to Participant 1 around noon",
+      "context": "Agreed handoff timing so Participant 1 can do a final read and send it out this afternoon",
+      "made_by": "Participant 1"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Tighten the wording on the trend slide — specifically add a note under the usage/renewal chart to explain the March dip more directly",
+      "owner": "Alex",
+      "deadline": "this morning",
+      "priority": "high",
+      "context": "Current wording reads as evasive; agreed to explain what happened more directly without restructuring the slide",
+      "source_quote": "I want to take note under the chart to explain what happened more directly"
+    },
+    {
+      "task": "Rewrite the summary slide bullets — replace 'mixed' with specific statements: engagement was up, retention was flat, and support tickets increased",
+      "owner": "Alex",
+      "deadline": "this morning",
+      "priority": "high",
+      "context": "'Mixed' was identified as vague and unhelpful; specific language was agreed upon",
+      "source_quote": "I think we should just say engagement was up, retention was flat, and support sticked in crescent"
+    },
+    {
+      "task": "Send the revised deck back to Participant 1",
+      "owner": "Alex",
+      "deadline": "around noon",
+      "priority": "high",
+      "context": "Agreed handoff so Participant 1 can do a final read before sending to the client this afternoon",
+      "source_quote": "send it back to me around noon"
+    },
+    {
+      "task": "Give the revised deck one final read",
+      "owner": "Participant 1",
+      "deadline": "this afternoon",
+      "priority": "high",
+      "context": "Final quality check before sending the dashboard to the client",
+      "source_quote": "I'll give it one final read and get it out this afternoon"
+    },
+    {
+      "task": "Send the dashboard to the client",
+      "owner": "Participant 1",
+      "deadline": "this afternoon",
+      "priority": "high",
+      "context": "Agreed to send today so the client has time to review before the Tuesday meeting",
+      "source_quote": "get it out this afternoon"
+    },
+    {
+      "task": "Draft and send the client email to accompany the dashboard",
+      "owner": "Participant 1",
+      "deadline": "this afternoon",
+      "priority": "high",
+      "context": "Participant 1 declined Alex's offer to draft it, preferring to handle tone personally based on earlier client correspondence",
+      "source_quote": "No, I've got it, I'll probably tweak the tone depending on whether they reply to me earlier notes"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Is the support ticket increase actually tied to the onboarding changes, and what is the confirmed cause?",
+      "raised_by": "Participant 1",
+      "context": "The link is suspected but not confirmed enough to state in the deck; this is deferred to the Tuesday client meeting discussion"
+    }
+  ],
+  "participants": [
+    {
+      "label": "Participant 1",
+      "role_if_known": "Meeting leader / likely manager or senior stakeholder — sets deadlines, directs workflow, decides on send timing and email ownership",
+      "first_utterance": "Hey Alex, how's it going?"
+    },
+    {
+      "label": "Alex",
+      "role_if_known": "Deck owner / analyst — responsible for revising and delivering the dashboard draft",
+      "first_utterance": "Pretty good, as you retired."
+    }
+  ],
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "A Tuesday meeting with the client is already scheduled, at which the support ticket increase and its potential link to onboarding changes will be discussed in person.",
+  "attendees_mentioned": []
+}
