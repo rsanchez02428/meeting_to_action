@@ -205,7 +205,7 @@ def validate_extraction(data: dict) -> dict:
 # === TEST IT ===
 if __name__ == "__main__":
     # Load the transcript from Phase 2
-    transcript_path = "outputs/transcripts/transcript_1.json"
+    transcript_path = "outputs/transcripts/transcript_2.json"
 
     if not Path(transcript_path).exists():
         # Use a sample transcript for testing
@@ -247,10 +247,10 @@ if __name__ == "__main__":
     print(json.dumps(result, indent=2))
 
     # Save for the next phase
-    with open("outputs/extractions/sample_1/sample_1_extraction_v2.json", "w") as f:
-        json.dump(result, f, indent=2)
+    with open("outputs/extractions/sample_2/sample_2_extraction_v2.json", "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
 
-    print("\nSaved to outputs/extractions/sample_1/sample_1_extraction_v2.json")
+    print("\nSaved to outputs/extractions/sample_2/sample_2_extraction_v2.json")
     
     # Print a quick summary
     print(f"\n--- QUICK STATS ---")
