@@ -40,7 +40,7 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
 
     response = client.messages.create( 
         model="claude-sonnet-4-6",
-        max_tokens=8000,
+        max_tokens=16000,
         temperature=0,
         messages=[{
             "role": "user", 
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json", "w", encoding="utf-8") as f:
-        json.dump(final_data, f, indent=2, ensure_ascii=False)
+    with open("outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json", "w") as f:
+        json.dump(final_data, f, indent=2)
     
     print("\nFinal verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json")
