@@ -170,16 +170,18 @@ No changes. Baseline prompt.
 #### Extraction v2
 
 - **Results**
+  - Topics discussed: 10
+  - Decisions made: 9
+  - Action items: 15
+  - Open questions: 1
 - **Errors**
+  - "Notify dispatch that staging time may run slightly longer today" is listed as an action item with owner Carlos, but the same statement appears in decisions with made_by Participant 1, and v1's own ground-truth correction assigned this to Participant 1. The source_quote ("I'll notify dispatch that staging time may run slightly longer today.") is a first-person commitment made by the leader during the recap, so the owner should be Participant 1. The cross-field consistency constraint didn't catch it because owner and made_by were generated in separate fields without being reconciled against each other. Worth flagging despite the otherwise clean result.
 - **Notes**
-
----
-
-#### Extraction v3
-
-- **Results**
-- **Errors**
-- **Notes**
+  - Both v1-missed editorial decisions are recovered: "Add a note under the usage/renewal chart to explain the March dip" and "Rewrite the summary slide first bullet… replacing the vague word 'mixed.'" The expanded taxonomy now treats mutual agreement on a small change as a decision instead of background chatter.
+  - The v1 merge is fixed: "tighten wording" and "rewrite bullets" are now two distinct action items.
+  - Attribution is clean throughout. Alex owns the editing/handoff tasks, Participant 1 owns the final read, the send, and the email. No owner corrections appear needed, unlike v1.
+  - source_quote is doing useful double duty as a Whisper-error surface. "I think we should just say engagement was up, retention was flat, and support sticked in crescent" preserves the garbled ASR ("support sticked in crescent") verbatim while the decision text correctly resolves it to "support tickets increased." Same with Alex's first_utterance "Pretty good, as you retired." This ties directly to the Whisper-1 notes. The field now pinpoints exactly where the 5–10s of ASR misalignment landed, which gives the verifier and a human reviewer a precise place to look.
+  - Same decision/action overlap pattern as Sample 1: the noon handoff is both a decision ("Alex will send the revised deck back…") and an action item ("Send the revised deck back to Participant 1," owner Alex).
 
 ---
 
@@ -225,15 +227,6 @@ No changes. Baseline prompt.
 
 ---
 
-#### Verification v3 on Extraction v3
-
-- **Results**
-- **Corrections**
-- **Errors**
-- **Notes**
-
----
-
 ### Sample 2
 
 #### Extraction v1
@@ -263,24 +256,18 @@ No changes. Baseline prompt.
 #### Extraction v2
 
 - **Results**
-  - Topics discussed:
-  - Decisions made:
-  - Action items:
-  - Open questions:
+  - Topics discussed: 7
+  - Decisions made: 7
+  - Action items: 6
+  - Open questions: 1
 - **Errors**
+  - N/A
 - **Notes**
-
----
-
-#### Extraction v3
-
-- **Results**
-  - Topics discussed:
-  - Decisions made:
-  - Action items:
-  - Open questions:
-- **Errors**
-- **Notes**
+  - Both v1-missed editorial decisions are recovered: "Add a note under the usage/renewal chart to explain the March dip" and "Rewrite the summary slide first bullet… replacing the vague word 'mixed.'" The expanded taxonomy now treats mutual agreement on a small change as a decision instead of background chatter.
+  - The v1 merge is fixed: "tighten wording" and "rewrite bullets" are now two distinct action items.
+  - Attribution is clean throughout. Alex owns the editing/handoff tasks, Participant 1 owns the final read, the send, and the email. No owner corrections appear needed, unlike v1.
+  - source_quote is doing useful double duty as a Whisper-error surface. "I think we should just say engagement was up, retention was flat, and support sticked in crescent" preserves the garbled ASR ("support sticked in crescent") verbatim while the decision text correctly resolves it to "support tickets increased." Same with Alex's first_utterance "Pretty good, as you retired." This ties directly to the Whisper-1 notes. The field now pinpoints exactly where the 5–10s of ASR misalignment landed, which gives the verifier and a human reviewer a precise place to look.
+  - Same decision/action overlap pattern as Sample 1: the noon handoff is both a decision ("Alex will send the revised deck back…") and an action item ("Send the revised deck back to Participant 1," owner Alex).
 
 ---
 
@@ -321,18 +308,6 @@ No changes. Baseline prompt.
 
 ---
 
-#### Verification v3 on Extraction v3
-
-- **Results**
-  - Accuracy checks:
-  - Missed items:
-  - Hallucinations:
-- **Corrections**
-- **Errors**
-- **Notes**
-
----
-
 ### Sample 3
 
 #### Extraction v1
@@ -362,16 +337,18 @@ No changes. Baseline prompt.
 #### Extraction v2
 
 - **Results**
+  - Topics discussed: 5
+  - Decisions made: 6
+  - Action items: 5
+  - Open questions: 3
 - **Errors**
+  - open_questions jumped 0 to 3. Only "What exactly does Redwood mean by 'priority response'?" is clearly a posed, unresolved question — it's the basis for the email action item. The other two, "Will finance have a significant negative reaction to the budget number?" and "Will Redwood come back with anything unexpected or problematic…?",  read as anticipated risks/uncertainties rather than questions actually raised. Acceptable for now but somthing worth flagging.
 - **Notes**
-
----
-
-#### Extraction v3
-
-- **Results**
-- **Errors**
-- **Notes**
+  - "Update the internal summary…" carries deadline "next week, next hour," faithfully copied from a the source_quote ("I can get the summary updated next week, next hour"). Correct behavior under verbatim preservation, but the deadline is internally inconsistent and should be resolved. This is something best left for clarification betweem meeting attendies to not miss align in correct future deadlines.
+  - Both v1-missed decisions are recovered: "Revise the internal summary to explicitly state… IT and OPS coordination…" and "Budget number is acceptable and within the previously discussed cap" (a confirmation/acceptance decision the expanded taxonomy now catches).
+  - The IT/OPS coordination item correctly appears as both a decision and an action item ("Update the internal summary…"). This is the precise dual-category case the v1 verifier flagged as having no rule. v2 now represents it in both fields rather than picking one.
+  - Owner attribution is correct without verifier intervention: summary update and Redwood email to Participant 2; forward to finance to Participant 1.
+  - Net pattern across v2: the recall bias clearly fixed v1's under-extraction of decisions and action items, but Sample 3 shows it can overshoot specifically on open_questions. Consider a v3 tightening rule scoped to open_questions only.
 
 ---
 
@@ -419,20 +396,6 @@ No changes. Baseline prompt.
 - **Corrections**
 - **Errors**
 - **Notes**
-
----
-
-#### Verification v3 on Extraction v3
-
-- **Results**
-  - Accuracy checks:
-  - Missed items:
-  - Hallucinations:
-- **Corrections**
-- **Errors**
-- **Notes**
-
----
 
 ## Whisper-1 Notes
 
