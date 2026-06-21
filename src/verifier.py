@@ -71,27 +71,27 @@ def apply_corrections(original: dict, verification:dict) -> dict:
     changes = []
     for check in verification.get("accuracy_checks", []):
         if check.get("status") != "correct":
-            changes.append(f" - {check['field']}: {check.get('issue', 
+            changes.append(f" - {check['field']}: {check.get('issue',
             'unknown issue')}")
-        
-        for missed in verification.get("missed_items", []):
-            changes.append(f" - MISSED: {missed['type']} - {missed['content']}")
 
-        for hallucination in verification.get("hallucination_flags", []):
-            changes.append(f" - HALLUCINATIONL: {hallucination['field']} - {hallucination['reason']}")
+    for missed in verification.get("missed_items", []):
+        changes.append(f" - MISSED: {missed['type']} - {missed['content']}")
 
-        if changes:
-            print("Verification found issues:")
-            for change in changes:
-                print(change)
+    for hallucination in verification.get("hallucination_flags", []):
+        changes.append(f" - HALLUCINATION: {hallucination['field']} - {hallucination['reason']}")
+
+    if changes:
+        print("Verification found issues:")
+        for change in changes:
+            print(change)
     return corrected
 
 # === TEST IT ===   # In the terminal, run: python -m src.verifier. This is due to src.extracor being imported. If we just run python src/verifier.py, it won't work because of the import statement. By running it as a module, we ensure the imports work correctly.
 if __name__ == "__main__":
     # Load the transcript and extraction from the previous phases
-    with open("outputs/transcripts/transcript_1.json", "r") as f:
+    with open("outputs/transcripts/transcript_3.json", "r") as f:
         transcript_data = json.load(f)
-    with open("outputs/extractions/sample_1/sample_1_extraction_v2.json", "r") as f:
+    with open("outputs/extractions/sample_3/sample_3_extraction_v2.json", "r") as f:
         extraction_data = json.load(f)
     
     print("Verifying extraction...")
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json", "w") as f:
+    with open("outputs/verifications/sample_3/sample_3_extraction_v2_verification_v2.json", "w") as f:
         json.dump(final_data, f, indent=2)
     
-    print("\nFinal verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json")
+    print("\nFinal verified data saved to outputs/verifications/sample_3/sample_3_extraction_v2_verification_v2.json")
