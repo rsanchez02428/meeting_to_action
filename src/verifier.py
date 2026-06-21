@@ -33,7 +33,7 @@ def verify_extraction(transcript: str, extracted_data: dict) -> dict:
     Always verify.
     """
     verification_prompt = (
-        load_prompt("verification_v1.txt")
+        load_prompt("verification_v2.txt")
         .replace("{TRANSCRIPT}", transcript)
         .replace("{EXTRACTED_JSON}", json.dumps(extracted_data, indent=2))
     )
@@ -89,9 +89,9 @@ def apply_corrections(original: dict, verification:dict) -> dict:
 # === TEST IT ===   # In the terminal, run: python -m src.verifier. This is due to src.extracor being imported. If we just run python src/verifier.py, it won't work because of the import statement. By running it as a module, we ensure the imports work correctly.
 if __name__ == "__main__":
     # Load the transcript and extraction from the previous phases
-    with open("outputs/transcripts/transcript_3.json", "r") as f:
+    with open("outputs/transcripts/transcript_1.json", "r") as f:
         transcript_data = json.load(f)
-    with open("outputs/extractions/sample_3/sample_3_extraction_v1.json", "r") as f:
+    with open("outputs/extractions/sample_1/sample_1_extraction_v2.json", "r") as f:
         extraction_data = json.load(f)
     
     print("Verifying extraction...")
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verifications/sample_3/sample_3_extraction_v1_verification_v1.json", "w") as f:
-        json.dump(final_data, f, indent=2)
+    with open("outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json", "w", encoding="utf-8") as f:
+        json.dump(final_data, f, indent=2, ensure_ascii=False)
     
-    print("\nFinal verified data saved to outputs/verifications/sample_3/sample_3_extraction_v1_verification_v1.json")
+    print("\nFinal verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json")
