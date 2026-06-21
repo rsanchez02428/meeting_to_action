@@ -221,6 +221,25 @@ No changes. Baseline prompt.
 #### Verification v2 on Extraction v2
 
 - **Results**
+  - Accuracy checks: 11
+  - Missed items: 3
+  - Hallucinations: 0
+  - Verification found issues:
+    - action_items[3].task: The task description says 'during peak hours' but the recap in the transcript says 'during pick hours'. More importantly, the source_quote for this item is 'Second, you'll create a pick only lane during pick hours.' — the transcript's recap uses 'pick hours' not 'peak hours'. While 'peak hours' is used earlier in the conversation and is the intended meaning, the task description and source_quote are inconsistent with each other. The task description is the more accurate representation of intent, but the source_quote accurately reflects the recap wording.
+    - action_items[5].source_quote: The source_quote reads 'Third, you'll retain the temp workers before they go back to independent tasks.' The transcript word is 'retain' (likely a transcription error for 'retrain'), and the task description correctly says 'refresher training'. The source_quote is faithful to the transcript. However, the task description says 'Conduct refresher training for temp workers on scan confirmation and pallet labeling before they return to independent picking' — this is accurate in meaning. No extraction error; the source_quote faithfully reproduces the transcript.
+    - decisions[2].decision: The decision 'Temp workers must complete refresher training on scanning and labeling before returning to independent picking tasks' is attributed to 'made_by: Participant 1'. This is correct. However, the decision description omits the specific condition stated in the transcript: 'remove the temp workers from independent picking UNTIL they complete refresher training'. The extraction captures this correctly in the decision text. No issue.
+    - decisions — missing decision about prioritizing eight SKUs: The decision to prioritize the eight highest-movement SKUs for the cycle count is captured in action_items but is missing from the decisions array. Carlos proposed it and Participant 1 agreed ('Good'), making it a confirmed decision.
+    - action_items[7].task: The task says 'Pull two team members after lunch' but the transcript says 'Pull to team members after lunch' — 'to' is likely a transcription error for 'two'. The extraction correctly interprets this as 'two team members', which is the accurate meaning. This is correct.
+    - action_items[10].owner: The task 'Notify dispatch that staging time may run slightly longer today' is assigned to Carlos. This is correct — Carlos explicitly said 'I'll notify dispatch that staging time may run slightly longer today.' However, action_items[11] assigns 'Coordinate with dispatch to make carriers aware of possible short staging delays' to Participant 1. These are two separate but related actions: Carlos notifies dispatch about staging delays, and Participant 1 coordinates with dispatch to notify carriers. Both are correctly attributed.
+    - action_items[13].owner: The task 'Monitor shipping accuracy and picking speed data over the next seven days' is assigned to 'Unassigned'. In the transcript, Participant 1 proposes this and Carlos agrees ('Exactly'), and then Participant 1 says 'Let's use the next seven days to measure the impact of this changes.' This is a joint commitment with no specific individual assigned. 'Unassigned' is a reasonable label, but it could also be attributed to both participants. This is acceptable.
+    - action_items[14].owner: The task 'Review performance numbers and decide whether to pursue a larger warehouse layout redesign' is assigned to Participant 1 with deadline 'Friday at 2 p.m.' This is a joint meeting/review, not solely Participant 1's task. The transcript says 'we'll meet again Friday at 2 p.m.' — both participants are expected to attend and review. Assigning solely to Participant 1 is a minor inaccuracy.
+    - key_topics[3].summary: The summary says 'a driver arriving to find a missing pallet and a misplaced pallet'. The transcript says 'one pallet was missing and other was in the wrong and another one was in the wrong loading bay.' This suggests two pallets were in the wrong loading bay (or one missing and one in wrong bay). The extraction's summary is consistent with the transcript's meaning. However, the transcript also mentions 'The truck left with a partial load' — this detail is captured. No significant error.
+    - open_questions[0].raised_by: The open question is attributed as raised_by 'Participant 1'. In the transcript, Participant 1 raises it first ('Are there are this warehouse issues temporary...') but Carlos also contributes to framing it ('I think that's the bigger question'). Attributing solely to Participant 1 is acceptable but slightly incomplete. Not a significant error.
+    - MISSED: decision - Prioritize the eight highest-movement SKUs for the cycle count to get the clearest picture fastest
+    - MISSED: decision - If shipping accuracy and picking speed improve over the next week, the problem was mostly execution; if not, a more serious layout redesign may be needed — agreed as the evaluation framework
+    - MISSED: action_item - Carlos to get started with the floor team immediately after the meeting (general implementation start, distinct from the specific briefing task)
+
+Final verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json
 - **Corrections**
 - **Errors**
 - **Notes**
@@ -299,9 +318,20 @@ No changes. Baseline prompt.
 #### Verification v2 on Extraction v2
 
 - **Results**
-  - Accuracy checks:
-  - Missed items:
-  - Hallucinations:
+  - Accuracy checks: 13
+  - Missed items: 1
+  - Hallucinations: 0
+  - Verification found issues:
+    - decisions[0].made_by: The decision to add a note under the chart was proposed by Alex ('I want to take note under the chart to explain what happened more directly'), not Participant 1. The extractor attributed it to 'Alex' which is correct. Wait — re-reading: the extractor says made_by: 'Alex'. That is correct. No error here.
+    - decisions[1].made_by: The decision to rewrite the summary bullet was proposed by Alex ('I think we should just say engagement was up, retention was flat, and support sticked in crescent') and agreed to by Participant 1 ('Agreed'). The extractor attributes this to 'Participant 1', but it was Alex who proposed the specific language. The decision should be attributed to Alex, or jointly, but the proposal originated with Alex.
+    - decisions[3].made_by: The decision to leave out the benchmark comparison was proposed by Participant 1 ('I think so... adding another chart now feels like the kind of chart we regret immediately') and agreed to by Alex ('Yeah, I'm with you'). The extractor attributes this to 'Participant 1', which is correct.
+    - decisions[4].made_by: The decision about how to handle the support ticket increase in the deck was a joint discussion. Participant 1 said 'I'd be careful on the deck' and Alex said 'Same, that's what's been bothering me.' Then Participant 1 articulated the approach ('acknowledge it, don't over-commit on the cause') and Alex agreed ('Yeah, that feels right'). The extractor attributes this to 'Participant 1', which is the most defensible attribution. This is acceptable.
+    - decisions[6].made_by: The decision that Alex will send the revised deck back around noon was directed by Participant 1 ('send it back to me around noon') and accepted by Alex ('Works for me'). The extractor attributes this decision to 'Participant 1', which is correct as Participant 1 set the deadline and Alex accepted it.
+    - action_items[1].source_quote: The source quote provided is 'I think we should just say engagement was up, retention was flat, and support sticked in crescent' — this is the garbled transcript text. The extracted summary says 'support tickets increased' but the transcript says 'support sticked in crescent' (garbled audio). The extraction correctly interprets the meaning, but the source_quote should reflect the actual transcript text, which it does. However, the extracted task description says 'support tickets increased' while the transcript says 'support sticked in crescent'. The interpretation is reasonable given context, but reviewers should note the transcript is garbled here.
+    - key_topics[2].summary: The summary states 'support tickets increased' as the agreed replacement language. The transcript says 'support sticked in crescent' which is garbled, but the prior context about 'support ticket increase' supports this interpretation. However, the extraction presents this as a clean, confirmed phrase when the transcript is actually garbled at this point. This is a minor interpretation issue, not a fabrication.
+    - open_questions[0].raised_by: The open question about the support ticket cause was raised by Participant 1 ('do we want to stay in the deck that is probably tied to onboarding changes or leave that for the discussion on Tuesday?'). The extractor attributes it to 'Participant 1', which is correct.
+    - decisions[1].made_by: Attributed to 'Participant 1' but the specific language replacement was proposed by Alex. Participant 1 agreed. Should be 'Alex'.
+    - MISSED: decision - The summary slide needs one more pass — agreed that it needs revision (this is the framing decision that precedes the bullet rewrite decision, confirming the summary slide as a whole needs work, not just the first bullet)
 - **Corrections**
 - **Errors**
 - **Notes**
@@ -390,9 +420,24 @@ No changes. Baseline prompt.
 #### Verification v2 on Extraction v2
 
 - **Results**
-  - Accuracy checks:
-  - Missed items:
-  - Hallucinations:
+  - Accuracy checks: 14
+  - Missed items: 3
+  - Hallucinations: 0
+  - Verification found issues:
+    - decisions[0].made_by: Decision to move forward with Redwood was jointly reached, not made solely by Participant 1
+    - decisions[1].made_by: The proposal to revise the summary language came from Participant 2, not Participant 1
+    - decisions[2].made_by: The request to send Redwood a support clarification email was raised by Participant 2, not Participant 1
+    - decisions[3].made_by: Decision not to involve OPS yet was proposed by Participant 1 but agreed jointly; attributing solely to Participant 1 is a minor inaccuracy
+    - decisions[5].made_by: Adding OPS at kickoff was agreed jointly, not decided by Participant 2 alone
+    - action_items[0].deadline: The deadline 'next week, next hour' is a verbatim transcription of a speech disfluency. The extraction correctly preserves it verbatim per methodology, but the source_quote is truncated — it omits 'and send the email right after', which is part of the same utterance and relevant to the sequencing of action items.
+    - action_items[1].priority: The support clarification email is listed as 'medium' priority, but it is a prerequisite for moving forward with the vendor and is sequenced immediately after the summary update. It should be 'high' priority, consistent with the urgency expressed in the transcript.
+    - open_questions[1].raised_by: The question about finance's reaction was raised by Participant 1 ('Are you still good with the budget number, or is finance going to have a dramatic reaction to this?'), not Participant 1 asking about their own reaction. The raised_by is correctly Participant 1, but the context says 'Finance approval is a prerequisite for moving forward' — this is accurate. No error in raised_by, but the context slightly overstates certainty; finance was described as unlikely to block it.
+    - open_questions[2].raised_by: The question about whether Redwood will come back with something unexpected was raised in the context of Participant 1's statement ('Then unless they come back with something weird on support, I don't see a reason not to move ahead'), making it Participant 1 who raised this concern, not Participant 1 — wait, the extraction says Participant 1, which is correct.
+    - action_items[0].source_quote: Source quote is truncated. The full utterance includes the sequencing of the email send: 'I can get the summary updated next week, next hour, and send the email right after'
+    - participants[0].role_if_known: Describing Participant 1 as 'Decision-maker / likely manager or senior stakeholder' overstates the evidence. Both participants appear to be peers. Participant 1 forwards to finance but this does not establish seniority.
+    - MISSED: decision - Agreed not to delay further — both participants confirmed another week would not change the decision and further delay only creates more meetings
+    - MISSED: decision - Redwood selected over three other evaluated vendors based on clarity and cost
+    - MISSED: open_question - Whether the next-quarter go-live target is achievable given current timing
 - **Corrections**
 - **Errors**
 - **Notes**
