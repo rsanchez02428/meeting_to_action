@@ -1,0 +1,151 @@
+{
+  "meeting_summary": "Two participants reviewed the Redwood vendor proposal and jointly aligned on moving forward, pending one clarification on support response times and a revision to the internal summary's language around implementation risk. They agreed on a division of tasks: Participant 2 will update the summary and send the support question to Redwood, while Participant 1 will forward the updated summary to finance. OPS involvement is deferred until after Redwood's support answer and finance approval.",
+  "key_topics": [
+    {
+      "topic": "Redwood vendor proposal readiness",
+      "summary": "Both participants agreed the Redwood proposal is solid overall and that further delay is unlikely to change the decision. The main remaining concern was vague 'priority support' language in the proposal. Redwood was preferred over three other evaluated vendors.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Support response time ambiguity",
+      "summary": "The proposal's 'priority response' language was flagged as intentionally vague and potentially misleading; an email to Redwood to clarify specific response times was agreed upon.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Internal summary language revision",
+      "summary": "The current internal summary was deemed too soft about implementation risk, describing it as 'light coordination'; both agreed it should explicitly state IT and OPS coordination is needed in the first two weeks.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "Budget and timing",
+      "summary": "The budget was confirmed to be under the previously discussed cap, and both agreed that delaying further risks missing a next-quarter go-live target.",
+      "time_range": "N/A"
+    },
+    {
+      "topic": "OPS involvement in kickoff",
+      "summary": "Both participants discussed whether to include OPS at the kickoff meeting immediately or after contract signing, ultimately deciding to defer OPS involvement until after Redwood's support answer and finance approval.",
+      "time_range": "N/A"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Move forward with Redwood as the selected vendor, pending support clarification and finance review",
+      "context": "Redwood was the only vendor that didn't create unnecessary complexity or cost, and further delay is unlikely to change the outcome",
+      "made_by": "Both / Joint"
+    },
+    {
+      "decision": "Redwood selected over three other evaluated vendors based on clarity and cost",
+      "context": "Both participants agreed Redwood was the clear choice after evaluating three vendors",
+      "made_by": "Both / Joint"
+    },
+    {
+      "decision": "Do not delay further \u2014 another week would not change the decision and only creates more meetings",
+      "context": "Both participants agreed that continued delay serves no purpose",
+      "made_by": "Both / Joint"
+    },
+    {
+      "decision": "Revise the internal summary to explicitly state that IT and OPS coordination is required during the first two weeks of rollout",
+      "context": "Current language ('light coordination') was deemed too vague and risks stakeholders being surprised by the actual coordination burden",
+      "made_by": "Participant 2"
+    },
+    {
+      "decision": "Send Redwood an email to clarify support response times before proceeding",
+      "context": "The proposal's 'priority response' language is intentionally vague and could cause problems if assumed to mean more than it promises",
+      "made_by": "Participant 2"
+    },
+    {
+      "decision": "Budget number is acceptable and within the previously discussed cap",
+      "context": "Finance won't love it but the spend is within agreed limits",
+      "made_by": "Participant 2"
+    },
+    {
+      "decision": "Do not involve OPS until after Redwood provides a clean support answer and finance approves",
+      "context": "Early OPS involvement risks adding opinions and complexity before anything is finalized",
+      "made_by": "Both / Joint"
+    },
+    {
+      "decision": "Add OPS at the kickoff meeting once contract conditions are met",
+      "context": "OPS involvement is deferred but confirmed for the kickoff stage contingent on clean outcomes from Redwood and finance",
+      "made_by": "Both / Joint"
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Update the internal summary to explicitly state that IT and OPS coordination is required during the first two weeks of rollout, replacing the current 'light coordination' language",
+      "owner": "Participant 2",
+      "deadline": "next week, next hour",
+      "priority": "high",
+      "context": "Current language is too vague about implementation risk and could mislead finance and other stakeholders",
+      "source_quote": "I can get the summary updated next week, next hour, and send the email right after"
+    },
+    {
+      "task": "Send Redwood an email to clarify what 'priority response' means in terms of specific support response times",
+      "owner": "Participant 2",
+      "deadline": "right after the summary is updated",
+      "priority": "high",
+      "context": "Vague support language in the proposal needs to be pinned down before moving forward; a clean answer from Redwood is a prerequisite for full commitment",
+      "source_quote": "I can get the summary updated next week, next hour, and send the email right after"
+    },
+    {
+      "task": "Send the revised summary to Participant 1 once it is complete",
+      "owner": "Participant 2",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Participant 1 needs the revised summary to forward to finance",
+      "source_quote": "send me the revised summary when you've got it, and I'll take it from there"
+    },
+    {
+      "task": "Forward the updated internal summary to finance once the summary revision is in place",
+      "owner": "Participant 1",
+      "deadline": "Not specified",
+      "priority": "medium",
+      "context": "Finance needs the revised summary to review and approve the Redwood proposal",
+      "source_quote": "I'll forward the updated version to finance once that's in place"
+    },
+    {
+      "task": "Add OPS to the kickoff meeting once Redwood provides a satisfactory support answer and finance does not object",
+      "owner": "Unassigned",
+      "deadline": "Not specified",
+      "priority": "low",
+      "context": "OPS involvement is deferred until contract conditions are met to avoid premature complexity",
+      "source_quote": "then we add ops at kickoff"
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "What exactly does Redwood mean by 'priority response' \u2014 is it two hours, same day, or something else?",
+      "raised_by": "Participant 2",
+      "context": "The vague support language could create misaligned expectations once the contract is in place"
+    },
+    {
+      "question": "Will finance have a significant negative reaction to the budget number?",
+      "raised_by": "Participant 1",
+      "context": "Finance approval is a prerequisite for moving forward with Redwood, though the budget is within the previously discussed cap"
+    },
+    {
+      "question": "Will Redwood come back with anything unexpected or problematic in their support clarification response?",
+      "raised_by": "Participant 1",
+      "context": "A clean answer from Redwood is the remaining condition for full commitment to move ahead"
+    },
+    {
+      "question": "Is the next-quarter go-live target achievable given current timing?",
+      "raised_by": "Participant 1",
+      "context": "Both participants acknowledged that sitting on the decision much longer risks missing the next-quarter target"
+    }
+  ],
+  "participants": [
+    {
+      "label": "Participant 1",
+      "role_if_known": "Peer reviewer / likely responsible for finance communication and final forwarding of the vendor proposal",
+      "first_utterance": "Hey, how are you holding up?"
+    },
+    {
+      "label": "Participant 2",
+      "role_if_known": "Proposal reviewer / likely responsible for vendor communication and internal documentation",
+      "first_utterance": "Not bad. A little fried, honestly."
+    }
+  ],
+  "follow_up_meeting_needed": true,
+  "follow_up_reason": "A follow-up is needed to confirm Redwood's support response, review finance's reaction to the proposal, and finalize the decision to proceed before the next-quarter go-live deadline.",
+  "attendees_mentioned": []
+}
