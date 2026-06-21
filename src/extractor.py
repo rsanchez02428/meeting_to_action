@@ -127,9 +127,13 @@ def parse_llm_json(raw_text: str) -> dict:
     if text.startswith("```"):
         # Find the first newline after ``` (skips ```json)
         first_newline = text.index("\n")
-        # Find the closing ```
+        # Find the closing ``` — rfind returns the opening fence (pos 0) when
+        # the response was truncated and no closing fence exists, so guard against it.
         last_fence = text.rfind("```")
-        text = text[first_newline + 1: last_fence].strip()
+        if last_fence > first_newline:
+            text = text[first_newline + 1: last_fence].strip()
+        else:
+            text = text[first_newline + 1:].strip()
     
     # Try to find JSON object in the text (in case of preamble)
     if not text.startswith("{"):
