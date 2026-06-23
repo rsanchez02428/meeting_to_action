@@ -241,8 +241,20 @@ No changes. Baseline prompt.
 
 Final verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json
 - **Corrections**
+  - Caught 3 missed items that v1 verification missed entirely:
+    - Decision: Prioritize the eight highest-movement SKUs for cycle count (dual-category: already in action_items but missing from decisions)
+    - Decision: Evaluation framework: if shipping accuracy and picking speed improve, the problem was execution; if not, a layout redesign may be needed
+    -Action item: Carlos to get started with the floor team immediately after the meeting (general implementation start, distinct from the specific briefing task)
+  - Correctly identified action_items[14] as a minor inaccuracy. The Friday review meeting is joint ("we'll meet again") but was attributed solely to Participant 1
+  - Correctly handled transcription artifacts without treating them as extraction errors: "retain" -> "retrain" (source_quote faithful to transcript, task description faithful to meaning), "to" -> "two" (extraction correctly interpreted as "two team members")
+  - Correctly noted the "pick hours" vs "peak hours" inconsistency between action_items[3] task description and its source_quote
 - **Errors**
+  - Did not flag the cross-field inconsistency between decisions[8] (made_by: Participant 1 for "Notify dispatch that staging time may run slightly longer today during stabilization") and action_items[10] (owner: Carlos for the same dispatch notification task). Regardless of which attribution is correct (Participant 1 is the owner), the same task cannot be attributed to two different people across the two arrays without being flagged.
 - **Notes**
+  - The six-phase methodology is producing materially better results than v1. v1 verification caught 2 items; v2 caught 3, and the types of catches are more sophisticated. A dual-category miss (SKU prioritization as both decision and action item) and an evaluation-framework decision that v1's open-ended methodology would not have surfaced.
+  - Zero false removals. The recalibrated hallucination criterion prevented the overcorrection pattern seen in v1 verification, where "Push IT to expedite scanner repairs" was incorrectly removed because the work seemed underway. All 15 extraction action items were preserved.
+  - The granularity check had less surface area to work with because extraction v2 already decomposed most sub-tasks. The one missed action (Carlos getting started immediately) is an extremely fine-grained "general start" that is arguably a duplicate of the briefing task rather than a distinct independently checkable item.
+  - The "notify dispatch" attribution is the hardest remaining error class. Without speaker labels in the transcript, both interpretations are defensible. This is a speaker-diarization ambiguity that prompting alone may not fully resolve.
 
 ---
 
@@ -333,8 +345,17 @@ Final verified data saved to outputs/verifications/sample_1/sample_1_extraction_
     - decisions[1].made_by: Attributed to 'Participant 1' but the specific language replacement was proposed by Alex. Participant 1 agreed. Should be 'Alex'.
     - MISSED: decision - The summary slide needs one more pass — agreed that it needs revision (this is the framing decision that precedes the bullet rewrite decision, confirming the summary slide as a whole needs work, not just the first bullet)
 - **Corrections**
+  - Correctly identified decisions[1].made_by as an attribution error — Alex proposed the specific replacement language ("engagement was up, retention was flat, support tickets increased"), and Participant 1 agreed with "Agreed." The made_by should be Alex, not Participant 1. Phase 1 commitment enumeration traced the "I think we should just say..." marker to Alex, catching what v1's open-ended methodology missed.
+  - Caught 1 missed decision: the summary slide needing one more pass. A general revision agreement that precedes the specific bullet rewrite, treated as a separate framing decision.
+  - Correctly handled garbled ASR throughout without false corrections. Recognized that source_quotes faithfully reproduce transcript wording ("support sticked in crescent") while task descriptions correctly resolve intended meaning ("support tickets increased"). No action items falsely corrected due to ASR artifacts.
 - **Errors**
+  - The missed decision ("summary slide needs one more pass") is borderline. It's the general acknowledgment that directly sets up decisions[1] (the specific bullet rewrite). Whether this is a distinct decision or just the conversational lead-in to the rewrite agreement is debatable. Logging it is reasonable, but it may represent over-counting rather than a genuine omission.
 - **Notes**
+  - Zero false corrections. A direct improvement over v1 verification, which downgraded "Draft and send cover email" to "Handle cover email" through surface word matching. The structured methodology prevented this behavior even without the explicit accuracy correction rule from the revised prompt.
+  - The depth of analysis increased substantially: v1 verification produced 1 accuracy check, 0 missed items, and 1 false correction. v2 produced 13 accuracy checks, 1 missed item, and 0 false corrections. The six-phase methodology is generating far more thorough coverage.
+  - Phase 1 commitment marker enumeration is the mechanism that caught the decisions[1].made_by error. By listing every "I think we should..." and "I'll..." marker with speaker attribution before comparing against the extraction, the verifier independently traced the proposal to Alex rather than trusting the extractor's attribution.
+  - The ASR handling pattern is consistent with Sample 1: source_quotes surface exactly where transcript garbling occurs ("support sticked in crescent," "Pretty good, as you retired"), giving both the verifier and a human reviewer precise locations to check. The verifier correctly distinguished between faithful transcript reproduction and meaning-level accuracy without conflating the two.
+  - The one genuinely new catch (decisions[1].made_by) is a "who proposed vs. who approved" distinction. The extraction prompt doesn't specify whether made_by should track the proposer or the approver. This ambiguity hasn't caused problems elsewhere but surfaced here because Alex proposed and Participant 1 approved. Worth considering whether made_by should be clarified in a future extraction prompt iteration.
 
 ---
 
@@ -439,9 +460,16 @@ Final verified data saved to outputs/verifications/sample_1/sample_1_extraction_
     - MISSED: decision - Redwood selected over three other evaluated vendors based on clarity and cost
     - MISSED: open_question - Whether the next-quarter go-live target is achievable given current timing
 - **Corrections**
+  - Corrected made_by attribution across 5 decisions — shifting single-speaker attributions to "Both / Joint" where the transcript shows mutual agreement, and correctly identifying Participant 2 as the proposer for the summary revision and support email decisions.
+  - Correctly identified action_items[1].priority as too low — the support clarification email is a prerequisite for moving forward with Redwood, warranting high priority rather than medium.
 - **Errors**
+  - Did not flag the open_questions over-extraction. The user's extraction v2 notes identified open_questions[1] ("Will finance have a significant negative reaction?") and open_questions[2] ("Will Redwood come back with anything unexpected?") as "anticipated risks/uncertainties rather than questions actually raised." The verifier validated all three without flagging the borderline items and then added a 4th similar item (go-live target), compounding the over-extraction pattern rather than catching it.
 - **Notes**
-
+  - The 3 missed items include 2 decisions not in the original extraction. "Redwood selected over three vendors" is an evaluation-outcome decision; "Agreed not to delay further" is a confirmation decision. Both fall within v2's expanded taxonomy, suggesting Phase 3 is catching types the extractor under-indexes on. 
+  - The open_questions over-extraction is the one area where v2 verification makes things worse rather than better. The hallucination criterion ("when in doubt, KEEP the item") works well for action items and decisions where a false negative has operational cost, but creates over-counting for open questions where the standard should arguably be tighter.
+  - The "next week, next hour" deadline was correctly handled throughout — both the extractor and verifier preserved it verbatim as a speech disfluency rather than normalizing or flagging it as an error. This is consistent with the deadline preservation rule working as designed.
+  - This is the sample where the peer dynamic is most evident. Both speakers propose, both agree, both take tasks. The verifier correctly identified this by challenging the "manager/senior stakeholder" role description, unlike Samples 1 and 2 where one speaker clearly directs the other.
+  
 ## Whisper-1 Notes
 
 - Good with removing background noise and not altering transcript extraction.
