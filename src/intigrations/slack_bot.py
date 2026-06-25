@@ -16,11 +16,26 @@ load_dotenv()
 
 slack_client = WebClient(token=os.getenv("SLACK_BOT_TOKEN"))
 
+SLACK_BLOCK_TEXT_LIMIT = 3000
+
+
+def append_text_blocks(blocks: list, text: str, block_type: str = "section"):
+    """Split text into multiple blocks if it exceeds Slack's 3000-char limit."""
+    while text:
+        if len(text) <= SLACK_BLOCK_TEXT_LIMIT:
+            chunk, text = text, ""
+        else:
+            # Prefer splitting at the end of a full entry
+            split_at = text.rfind("\n\n", 0, SLACK_BLOCK_TEXT_LIMIT)
+            chunk, text = text[:split_at], text[split_at:].lstrip("\n ")
+        blocks.append({"type": block_type, "text": {"type": "mrkdwn", "text": chunk}})
+
+
 def format_meeting_summary(data: dict) -> str:
     """
     Format extracted meeting data into Slack Block Kit messages.
-    
-    CONCEPT: Slack Block Kit is a JSON-based framework for building 
+
+    CONCEPT: Slack Block Kit is a JSON-based framework for building
     rich messages. Instead of plain text, you can create formatted
     messages with headers, sections, bullet points, and dividers.
 
@@ -33,59 +48,50 @@ def format_meeting_summary(data: dict) -> str:
     # Header
     blocks.append({
         "type": "header",
-        "text": {"type": "plain_text", "text": "Meeting Summary"}
+        "text": {"type": "plain_text", "text": "📋 Meeting Summary"}
     })
 
     # Summary
-    blocks.append({
-        "type": "section",
-        "text": {
-            "type": "mrkdwn",
-            "text": f"*Summary:* {data.get('meeting_summary', 'No summary available')}"
-        }
-    })
+    append_text_blocks(blocks, f"*Summary:* {data.get('meeting_summary', 'No summary available')}")
 
     blocks.append({"type": "divider"})
 
     # Decisions
     decisions = data.get("decisions", [])
     if decisions:
-        decision_text = "*Decisions Made:*\n"
+        decision_text = "*✅ Decisions Made:*\n\n"
         for d in decisions:
-            decision_text += f"- {d['decision']}\n"
-        blocks.append({
-            "type": "section", 
-            "text": {"type": "mrkdwn", "text": decision_text}
-        })
+            decision_text += (
+                f"- {d['decision']}\n"
+                f"     *Context:* {d.get('context', '')}\n"
+                f"     *Made by:* {d.get('made_by', '')}\n\n"
+            )
+        append_text_blocks(blocks, decision_text)
 
     # Action Items
     action_items = data.get("action_items", [])
     if action_items:
         blocks.append({"type": "divider"})
-        action_text = "*Acttion Items:*\n"
+        action_text = "🎯  *Action Items:*\n\n"
         for item in action_items:
-            priority = item.get("priority", []),
-            action_text += ( 
-                f"*{item['task']}*\n"
-                f"     {item.get('owner', [])} "
-                f"| {item.get("deadline", [])}\n"
+            priority_emoji = {"high": "🔴", "medium": "🟡", "low": "🟢"}.get(
+                item.get("priority", "")
             )
-        blocks.append({
-            "type": "section", 
-            "text": {"type": "mrkdwn", "text": action_text}
-        })
+            action_text += (
+                f"- {priority_emoji} *{item['task']}*\n"
+                f"     *Owner:* {item.get('owner', '')} "
+                f"| *Deadline:* {item.get('deadline', '')}\n\n"
+            )
+        append_text_blocks(blocks, action_text)
 
     # Open Questions
     questions = data.get("open_questions", [])
     if questions:
         blocks.append({"type": "divider"})
-        q_text = "Open Questions:*\n"
+        q_text = "❓ *Open Questions:*\n\n"
         for q in questions:
-            q_text += f" - {q['question']}\n"
-        blocks.append({
-            "type": "section", 
-            "text": {"type": "mrkdwn", "text": q_text}
-        })
+            q_text += f" - {q['question']}\n\n"
+        append_text_blocks(blocks, q_text)
     
     return blocks
 
@@ -129,7 +135,7 @@ def send_to_slack(channel: str, data: dict) -> bool:
         elif error_msg == "not_in_channel":
             print(f"Error: Bot not in '{channel}'. Invite it with /invite @Meeting Action Bot")
         elif error_msg == "invalid_auth":
-            print("ErrorL INvalid Slack token. Check your SLACK_BOT_TOKEN in .env")
+            print("Error Invalid Slack token. Check your SLACK_BOT_TOKEN in .env")
         else:
             print(f"Slack API Error: {error_msg}")
         
@@ -140,7 +146,7 @@ def send_to_slack(channel: str, data: dict) -> bool:
 if __name__ == "__main__":
     import json
 
-    with open("outputs/verifications/outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json") as f:
+    with open("outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json") as f:
         data = json.load(f)
 
     # Change this to test channel
