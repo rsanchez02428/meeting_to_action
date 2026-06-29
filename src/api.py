@@ -26,3 +26,10 @@ from src.verifier import verify_extraction, apply_corrections
 from src.integrations.slack_bot import send_to_slack
 from src.integrations.notion_client import push_action_items
 
+# Create the FastAPI app
+app = FastAPI(
+    title="Meeting-to-Action Intelligence System",
+    description="Upload a meeting recording -> Get structured action items",
+    version="1.0.0"
+)
+
