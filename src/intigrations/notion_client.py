@@ -54,8 +54,8 @@ def create_action_item(item: dict) -> dict:
         }
     }
 
-    # Add deadline if specifiec and it's a recognizable date
-    deadline = item.get("deadline", None)
+    # Add deadline if specific and it's a recognizable date
+    deadline = item.get("deadline", "Not specified")
     if deadline not in ["Not specified", "TBD", ""]:
         # Note: Notion expects ISO date format (YYYY-MM-DD)
         # For now, store as text. A production system would parse relative
@@ -107,7 +107,7 @@ def push_action_items(data: dict) -> list:
 if __name__ == "__main__":
     import json
 
-    with open("outputs\verifications\sample_3\sample_3_extraction_v2_verification_v2.json") as f:
+    with open(r"outputs\verifications\sample_3\sample_3_extraction_v2_verification_v2.json") as f:
         data = json.load(f)
 
     success = push_action_items(data)
