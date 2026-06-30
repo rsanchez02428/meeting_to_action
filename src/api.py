@@ -97,7 +97,8 @@ async def analyze_meeting(
     # Save uploaded file to a temporary location
     # CONCEPT: UploadFile gives us a file-like object in memory.
     # Whisper API needs an actual file on disk, so we save it temporarily.
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
+    suffix = Path(audio_file.filename).suffix if audio_file.filename else ".mp3"
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
         content = await audio_file.read()
         tmp.write(content)
         temp_path = tmp.name
