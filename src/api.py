@@ -147,3 +147,22 @@ async def analyze_meeting(
         # Always clean up the temp file
         os.unlink(temp_path)
 
+@app.post("/analyze-text")
+async def analyze_text(transcript: str, slack_channel: Optional[str]=None):
+    """ 
+    Analyze a pre-existing transcript (skip the transcription step).
+    Useful for testing or when you already have a transcript.
+    """
+    extraction = extract_meeting_data(transcript)
+    verification = verify_extraction(transcript, extraction)
+    final_data = apply_corrections(extraction, verification)
+
+    slack_sent = False
+    if slack_channel:
+        slack_sent = send_to_slack(slack_channel, final_data)
+
+    return {
+         "data": final_data,
+         "verification_check": verification.get("verification_status"),
+         "slack_sent": slack_sent
+    }
