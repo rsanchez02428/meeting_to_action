@@ -71,8 +71,7 @@ def apply_corrections(original: dict, verification:dict) -> dict:
     changes = []
     for check in verification.get("accuracy_checks", []):
         if check.get("status") != "correct":
-            changes.append(f" - {check['field']}: {check.get('issue',
-            'unknown issue')}")
+            changes.append(f" - {check['field']}: {check.get('issue', 'unknown issue')}")
 
     for missed in verification.get("missed_items", []):
         changes.append(f" - MISSED: {missed['type']} - {missed['content']}")
@@ -98,9 +97,9 @@ if __name__ == "__main__":
     verification = verify_extraction(transcript_data["text"], extraction_data)
 
     print(f"\nVerification status: {verification.get('verification_status')}")
-    print(f"Accuracy checks: {len(verification.get("accuracy_checks", []))}")
-    print(f"Missed items: {len(verification.get("missed_items", []))}")
-    print(f"Hallucinations: {len(verification.get("hallucination_flags", []))}")
+    print(f"Accuracy checks: {len(verification.get('accuracy_checks', []))}")
+    print(f"Missed items: {len(verification.get('missed_items', []))}")
+    print(f"Hallucinations: {len(verification.get('hallucination_flags', []))}")
 
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
