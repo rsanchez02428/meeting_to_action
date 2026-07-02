@@ -104,7 +104,7 @@ if __name__ == "__main__":
     # Apply corrections 
     final_data = apply_corrections(extraction_data, verification)
 
-    with open("outputs/verifications/sample_3/sample_3_extraction_v2_verification_v2.json", "w") as f:
-        json.dump(final_data, f, indent=2)
+    with open("outputs/verifications/sample_3/sample_3_extraction_v2_verification_v2.json", "w", encoding="utf-8") as f:
+        json.dump(final_data, f, indent=2, ensure_ascii=False)
     
     print("\nFinal verified data saved to outputs/verifications/sample_3/sample_3_extraction_v2_verification_v2.json")
