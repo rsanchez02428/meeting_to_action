@@ -170,7 +170,7 @@ Tested across 3 transcript types: warehouse operations 1-on-1, client dashboard 
 ## Tech Stack
 
 - **Transcription:** OpenAI Whisper API
-- **Extraction:** Anthropic Claude API (claude-sonnet-4-20250514)
+- **Extraction:** Anthropic Claude API (claude-sonnet-4-6)
 - **Verification:** Pydantic (schema validation) + Claude (semantic verification)
 - **Orchestration:** Python 3.11
 - **Delivery:** Slack SDK, Notion API
