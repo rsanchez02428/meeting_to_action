@@ -19,7 +19,7 @@
     }
     {
       "decision": "Have scanning teams share devices until repairs and replacements of scanners are complete",
-      "made_by": ""
+      "made_by": "Participant 1"
     }
     {
       "decision": "Re-slot overflow inventory out of zones B and C",
@@ -30,7 +30,7 @@
       "made_by": "Participant 1"
     }
     {
-      "decision": "Have temp workers retrained befroe they return to independent picking",
+      "decision": "Have temp workers retrained before they return to independent picking",
       "made_by": "Participant 1"
     }
     {
@@ -39,7 +39,7 @@
     }
      {
       "decision": "Meet again Friday at 2pm to review numbers and make final decision",
-      "made_by": "Both"
+      "made_by": "Participant 1"
     }
   ],
   
@@ -48,70 +48,68 @@
       "task": "Move overflow inventory out of zones B and C into the back reserve area",
       "owner": "Carlos",
       "deadline": "Today",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Make one lane pick only during peak hours",
       "owner": "Carlos",
       "deadline": "Today",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "remove the temp workers from independent picking until they complete refresher training on scanning and labeling",
       "owner": "Carlos",
       "deadline": "Not Specified",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Brief floor team ",
       "owner": Carlos,
       "deadline": "10:30",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Assign a lead to supervise the new lane setip ",
       "owner": "Carlos",
       "deadline": "Not specified",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Assign lead to the temp worker refresher",
       "owner": "Carlos",
       "deadline": "Not specified",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Notify dispatch that staging time may run longer today",
       "owner": "Participant 1",
       "deadline": "today",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Run cycle count on the affected SKUs",
       "owner": "Carlos",
       "deadline": "after lunch",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Pull two team members after lunch for targted cycle count",
       "owner": "Carlos",
       "deadline": "after lunch",
-      "priority": "medium",
+      "priority": "high",
     }
     {
       "task": "Provide variance report on cycle count",
       "owner": "Carlos",
       "deadline": "end of day",
-      "priority": "medium",
+      "priority": "high",
     }
         {
       "task": "Push IT to get remaining scanner repaired",
       "owner": "Participant 1",
       "deadline": "end of day",
-      "priority": "medium",
+      "priority": "high",
     }
- 
-
   ],
   
   "open_questions": [
@@ -158,15 +156,15 @@
     }
     {
       "decision": "Send dashboard today to client",
-      "made_by": "Both"
+      "made_by": "Participant 1"
     }
     {
       "decision": "Leave out benchmark comparison",
-      "made_by": "Both"
+      "made_by": "Participant 1"
     }
     {
-      "decision": "For the support ticket increase, acknowledge it in the deck but don't over commit. Talk throught with client in meeting.",
-      "made_by": "Both"
+      "decision": "For the support ticket increase, acknowledge it in the deck but don't over commit. Talk through it with client in meeting.",
+      "made_by": "Participant 1"
     }
 
   ],
@@ -175,44 +173,44 @@
     {
       "task": "Tighten wording on the trend slide (usuage renewal slide)",
       "owner": "Alex",
-      "deadline": "Noon",
-      "priority": "",
+      "deadline": "This morning",
+      "priority": "High",
     }
     {
       "task": "Rewrite the summary bullets",
       "owner": "Alex",
-      "deadline": "Noon",
-      "priority": "",
+      "deadline": "This morning",
+      "priority": "High",
     }
     {
       "task": "Send updated trend slide and summary bullets to Participant 1",
       "owner": "Alex",
       "deadline": "Noon",
-      "priority": "",
+      "priority": "High",
     }
     {
       "task": "Give dashboard one final read",
       "owner": "Participant 1",
       "deadline": "afternoon",
-      "priority": "",
+      "priority": "High",
     }
     {
       "task": "Send dashboard to client",
       "owner": "Participant 1",
       "deadline": "afternoon",
-      "priority": "",
+      "priority": "High",
     }
     {
       "task": "Draft email to send to client",
       "owner": "Participant 1",
-      "deadline": "Not Specified",
-      "priority": "",
+      "deadline": "This afternoon",
+      "priority": "High",
     }
   ],
   
   "open_questions": [
     {
-      "question": "",
+      "question": "N/A",
       "raised_by": "",
       "context": ""
     }
@@ -233,7 +231,7 @@
 ## Sample 3
 
 {
-  "meeting_summary": "Discussed vendor proposad and whether it was the right idea moving foward with Redwood.",
+  "meeting_summary": "Discussed vendor proposal and whether it was the right idea moving foward with Redwood.",
   
   "key_topics": [
     {
@@ -246,11 +244,11 @@
   "decisions": [
     {
       "decision": "Have internal summary say the implementation rollout needs coordination from IT and Ops during first two weeks.",
-      "made_by": "Both"
+      "made_by": "Participant 2"
     }
     {
       "decision": "Budget number is good",
-      "made_by": ""
+      "made_by": "Participant 2"
     }
     {
       "decision": "Do not involve ops in the meeting today",
@@ -268,28 +266,28 @@
   
   "action_items": [
     {
-      "task": "clean up summary language",
+      "task": "Clean up summary language",
       "owner": "Participant 2",
-      "deadline": "Not specified",
-      "priority": "",
+      "deadline": "next hour",
+      "priority": "high",
     }
     {
       "task": "Send Redwood the support question",
       "owner": "Participant 2",
-      "deadline": "Not specified",
-      "priority": "",
+      "deadline": "after the summary update",
+      "priority": "high",
     }
     {
       "task": "Foward updated version to finance",
       "owner": "Participant 1",
-      "deadline": "",
-      "priority": "",
+      "deadline": "Not Specified",
+      "priority": "Medium",
     }
     {
       "task": "Send revised summary to Participant 1",
       "owner": "Participant 2",
-      "deadline": "",
-      "priority": "",
+      "deadline": "Not Specified",
+      "priority": "Medium",
     }
   ],
   
@@ -303,7 +301,7 @@
   
   "participants": [
     {
-      "label": "Participany 1, Participant 2"
+      "label": "Participant 1, Participant 2"
       "role_if_known": ""
       "first_utterance": ""
     }
