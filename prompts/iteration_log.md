@@ -177,11 +177,7 @@ No changes. Baseline prompt.
 - **Errors**
   - "Notify dispatch that staging time may run slightly longer today" is listed as an action item with owner Carlos, but the same statement appears in decisions with made_by Participant 1, and v1's own ground-truth correction assigned this to Participant 1. The source_quote ("I'll notify dispatch that staging time may run slightly longer today.") is a first-person commitment made by the leader during the recap, so the owner should be Participant 1. The cross-field consistency constraint didn't catch it because owner and made_by were generated in separate fields without being reconciled against each other. Worth flagging despite the otherwise clean result.
 - **Notes**
-  - Both v1-missed editorial decisions are recovered: "Add a note under the usage/renewal chart to explain the March dip" and "Rewrite the summary slide first bullet… replacing the vague word 'mixed.'" The expanded taxonomy now treats mutual agreement on a small change as a decision instead of background chatter.
-  - The v1 merge is fixed: "tighten wording" and "rewrite bullets" are now two distinct action items.
-  - Attribution is clean throughout. Alex owns the editing/handoff tasks, Participant 1 owns the final read, the send, and the email. No owner corrections appear needed, unlike v1.
-  - source_quote is doing useful double duty as a Whisper-error surface. "I think we should just say engagement was up, retention was flat, and support sticked in crescent" preserves the garbled ASR ("support sticked in crescent") verbatim while the decision text correctly resolves it to "support tickets increased." Same with Alex's first_utterance "Pretty good, as you retired." This ties directly to the Whisper-1 notes. The field now pinpoints exactly where the 5–10s of ASR misalignment landed, which gives the verifier and a human reviewer a precise place to look.
-  - Same decision/action overlap pattern as Sample 1: the noon handoff is both a decision ("Alex will send the revised deck back…") and an action item ("Send the revised deck back to Participant 1," owner Alex).
+  - `(NEED - accidently put notes from Sample 2 Extraction v2 here.)`
 
 ---
 
@@ -238,8 +234,6 @@ No changes. Baseline prompt.
     - MISSED: decision - Prioritize the eight highest-movement SKUs for the cycle count to get the clearest picture fastest
     - MISSED: decision - If shipping accuracy and picking speed improve over the next week, the problem was mostly execution; if not, a more serious layout redesign may be needed — agreed as the evaluation framework
     - MISSED: action_item - Carlos to get started with the floor team immediately after the meeting (general implementation start, distinct from the specific briefing task)
-
-Final verified data saved to outputs/verifications/sample_1/sample_1_extraction_v2_verification_v2.json
 - **Corrections**
   - Caught 3 missed items that v1 verification missed entirely:
     - Decision: Prioritize the eight highest-movement SKUs for cycle count (dual-category: already in action_items but missing from decisions)
