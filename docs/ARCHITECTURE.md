@@ -51,7 +51,7 @@ The extraction prompt (v2) is built to preserve the transcript exactly - keep
 spoken deadline wording ("1030", not normalized to "10:30 AM"),
 distinguish commitments from suggestions, attacg a `source_quote`.
 
-**Why:** Most early extraction errors came from the model imporving on
+**Why:** Most early extraction errors came from the model improving on
 the source - adding structure or information that wasn't spoken. For an
 extraction task, that's a bug, not a feature. The design principle is:
 **extract what was said, don't clean it up.** Normalization, if wanted,
@@ -60,9 +60,11 @@ belongs in a later stage, not extraction.
 ### 3. Sub-task granularity is explicit
 
 The extractor pulls each sub-task of a multi-step commitment seperately
-rarher than collapsing them into one action item.
+rather than collapsing them into one action item.
 
-**Why:** 
+**Why:** Best approach for task tracking and management. Without specifically
+demanding sub-task granularity, multi-step commitments are bunched together
+in one action item rather than each task being treated as independent. 
 
 ---
 
@@ -71,13 +73,12 @@ rarher than collapsing them into one action item.
 | Module | Role | Notes |
 | --- | --- | --- |
 | `src/transcriber.py` | Audio → text | Whisper API |
-| `src/extractor.py` | Text → structured JSON | Claude (claude-sonnet-4-20250514). v2 is current best. |
-| `src/verifier.py` | Quality checks | **Claude-only** (semantic). No Pydantic. v2 written, eval pending. |
-| `src/integrations/slack_bot.py` | Slack delivery | Not started. |
-| `src/integrations/notion_client.py` | Task push | Not started. |
-| `src/api.py` | FastAPI endpoints | **Pydantic input validation lives here.** Endpoint not finished — confirm scaffolding (see Decision 2). |
+| `src/extractor.py` | Text → structured JSON | Started with claude-sonnet-4-20250514 (Retired). Replaced with claude-sonnet-4-6. v2 is current best. |
+| `src/verifier.py` | Quality checks | Started with claude-sonnet-4-20250514 (Retired). Replaced with claude-sonnet-4-6. v2 is current best. |
+| `src/integrations/slack_bot.py` | Slack delivery | Message containing meeting information sent to Slack channel. |
+| `src/integrations/notion_client.py` | Task push | Action items logged in a Notion database. |
+| `src/api.py` | FastAPI endpoints | Pydantic input validation lives here. |
 | `prompts/` | Versioned prompts + `iteration_log.md` | The prompt-iteration history lives here. |
-| `tests/test_extractor.py` | Extractor tests | ‹fill in coverage› |
-| `samples/` | Sample audio for testing | ‹fill in what #1/#2/#3 are› |
-| `outputs/` | Saved results | Currently holds partial verifier-v2 eval — mixed trust. |
+| `samples/` | Sample audio for testing | Sample #1: Warehouse issues, two meeting attendees, 9:00 minutes long, information easily identifiable given language. Sample #2: Client dashboard review, two meeting attendees, 5:26 minutes long, echoes natural human discourse, 1 attendee with an accent. Sample #3: Vendor proposal review, two meeting attendees, 6:14 minutes long, echos natural human discourse, disruptions in meeting. |
+| `outputs/` | Saved results | Holds output from transcriber, extractor, and verification steps in pipeline respectively. |
  
