@@ -75,10 +75,61 @@ in one action item rather than each task being treated as independent.
 | `src/transcriber.py` | Audio → text | Whisper API |
 | `src/extractor.py` | Text → structured JSON | Started with claude-sonnet-4-20250514 (Retired). Replaced with claude-sonnet-4-6. v2 is current best. |
 | `src/verifier.py` | Quality checks | Started with claude-sonnet-4-20250514 (Retired). Replaced with claude-sonnet-4-6. v2 is current best. |
-| `src/integrations/slack_bot.py` | Slack delivery | Message containing meeting information sent to Slack channel. |
-| `src/integrations/notion_client.py` | Task push | Action items logged in a Notion database. |
+| `src/integrations/slack_bot.py` | Slack delivery | Message containing meeting information sent to Slack channel through Slacks API. |
+| `src/integrations/notion_client.py` | Task push | Action items logged in a Notion database through Notions REST API. |
 | `src/api.py` | FastAPI endpoints | Pydantic input validation lives here. |
 | `prompts/` | Versioned prompts + `iteration_log.md` | The prompt-iteration history lives here. |
 | `samples/` | Sample audio for testing | Sample #1: Warehouse issues, two meeting attendees, 9:00 minutes long, information easily identifiable given language. Sample #2: Client dashboard review, two meeting attendees, 5:26 minutes long, echoes natural human discourse, 1 attendee with an accent. Sample #3: Vendor proposal review, two meeting attendees, 6:14 minutes long, echos natural human discourse, disruptions in meeting. |
 | `outputs/` | Saved results | Holds output from transcriber, extractor, and verification steps in pipeline respectively. |
- 
+
+---
+
+## Output schema
+
+```json
+{
+    "meeting_summary": "...",
+    "key_topics": [ 
+        {
+            "topic": "...",
+            "summary": "...", 
+            "time_range": "..." 
+        }
+    ], 
+    "decisions": [
+        { 
+            "decision": "...",
+            "context": "...",
+            "made_by": "..."
+        }
+    ], 
+    "action_items": [ 
+        { 
+            "task": "...",
+            "owner": "...",
+            "deadline": "...", 
+            "priority": "...",
+            "context": "..."
+        }
+    ],
+    "open_questions": [
+        { 
+            "questions": "...",
+            "raised_by": "...",
+            "context": "..."
+        }
+    ], 
+    "attendies_mentioned": ["..."],
+    "follow_up_meeting_needed": true/false, 
+    "follow_up_reason": "..."
+}
+```
+
+--- 
+
+## Tech stack
+
+- **Transcription:** OpenAI Whisper API
+- **Extraction:** Anthropic Claude API (claude-sonnet-4-6)
+- **Verification:** Anthropic Claude API (claude-sonnet-4-6)
+- 
