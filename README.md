@@ -173,7 +173,7 @@ Tested across 3 transcript types: warehouse operations 1-on-1, client dashboard 
 
 - **Transcription:** OpenAI Whisper API
 - **Extraction:** Anthropic Claude API (claude-sonnet-4-6)
-- **Verification:** Pydantic (schema validation) + Claude (semantic verification)
+- **Verification:** Anthropic Claude API (claude-sonnet-4-6 for semantic verification) + Pydantic (schema validation for FastAPI)
 - **Orchestration:** Python 3.13
 - **Delivery:** Slack SDK, Notion API
 - **API:** FastAPI + Uvicorn
