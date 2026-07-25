@@ -132,4 +132,10 @@ in one action item rather than each task being treated as independent.
 - **Transcription:** OpenAI Whisper API
 - **Extraction:** Anthropic Claude API (claude-sonnet-4-6)
 - **Verification:** Anthropic Claude API (claude-sonnet-4-6)
-- 
+- **API layer:** FastAPI, with Pydantic for request input validation(`api.py`)
+- **Slack channel delivery:** Slack SDK
+- **Notion database task push:** Notion API
+- **Packaging:** Docker
+- **Runtime:** Python 3.13
+
+---
