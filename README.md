@@ -160,14 +160,14 @@ Tested across 3 transcript types: warehouse operations 1-on-1, client dashboard 
 - The `source_quote` field in extraction v2 surfaces exactly where ASR errors occurred, giving reviewers a precise location to check.
 
 ## What's Next
- 
-- [ ] Cloud deployment (Railway, Render, or Fly.io)
-- [ ] End-to-end demo recording (Loom)
-- [ ] Expand test samples beyond 1-on-1s (standups, all-hands, cross-functional) for broader evaluation
+
+- [ ] Expand test samples beyond 1-on-1s for broader evaluation
 - [ ] Fix minor v2 errors: cross-field attribution inconsistency (Sample 1), open_questions over-extraction (Sample 3), made_by proposer-vs-approver ambiguity (Sample 2)
 - [ ] Test for consistent output across samples.
 - [ ] Cost optimization: token-reduced prompt versions (v2-lite), cross-version combination testing (e.g., extraction v2 + verification v1-lite), model-tier comparison (Sonnet vs. Haiku for verification)
 - [ ] Model lifecycle management: automated detection and fallback when the active API model is deprecated or retired (e.g., claude-sonnet-4-20250514 → claude-sonnet-4-6), to avoid pipeline downtime without manual intervention
+- [ ] Cloud deployment (Railway, Render, or Fly.io)
+- [ ] End-to-end demo recording (Loom)
 
 ## Tech Stack
 
