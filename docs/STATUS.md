@@ -7,11 +7,13 @@
 
 **Last updated:** 2026-06-30
 
-**Current phase:**
+**Current phase:** Expand test samples.
 
 ---
 
 ## **One-paragraph catch-up**
+
+Whisper transcription, 
 
 ---
 
