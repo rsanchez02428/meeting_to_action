@@ -13,7 +13,7 @@
 
 ## **One-paragraph catch-up**
 
-Whisper transcription, 
+Whisper transcription, extraction, and verification are built and running end to end, and the downstream pieces (FastAPI, Slack, Notion, Docker) are built too. Extraction v2 and verification v2 output outperform v1. Errors in v2 (cross-field attribution inconsistencies, and open questions over-extraction) are not severe enough to negatively impact work. Next steps is to increase sample size of audio meeting files that contains greater diversity (more meeting attendees, greater meeting minutes, meeting dominated by regular conversation, etc.) which can reveal underlying weaknesses in my prompts or/and pipeline.
 
 ---
 
