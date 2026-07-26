@@ -286,7 +286,7 @@ No changes. Baseline prompt.
   - Action items: 6
   - Open questions: 1
 - **Errors**
-  - N/A
+  - Missattributed decision [1] to Participant 1 rather than to Alex(made_by: Participant 1 for "Rewrite the summary slide first bullet to say engagement was up, retention..." ). Error most likely due to aligning decisions with the individual agreeing rather than to the individual proposing.
 - **Notes**
   - Both v1-missed editorial decisions are recovered: "Add a note under the usage/renewal chart to explain the March dip" and "Rewrite the summary slide first bullet… replacing the vague word 'mixed.'" The expanded taxonomy now treats mutual agreement on a small change as a decision instead of background chatter.
   - The v1 merge is fixed: "tighten wording" and "rewrite bullets" are now two distinct action items.
